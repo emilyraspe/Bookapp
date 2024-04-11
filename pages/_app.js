@@ -10,10 +10,10 @@ export default function App({ Component, pageProps }) {
   function handleInputChange(query) {
     setInput(query);
   }
-  console.log(input);
-  const yourAPIKey = process.env.yourAPIKey;
+  console.log("Input", input);
 
-  const googleBooksURL = `https://www.googleapis.com/books/v1/volumes?${input}=${yourAPIKey}`;
+  const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+  const googleBooksURL = `https://www.googleapis.com/books/v1/volumes?q=${input}&key=${API_KEY}`;
 
   const { data } = useSWR(googleBooksURL, fetcher);
   console.log(data);
