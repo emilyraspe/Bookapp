@@ -13,10 +13,10 @@ export default function App({ Component, pageProps }) {
   console.log("Input", input);
 
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
-  const googleBooksURL = `https://www.googleapis.com/books/v1/volumes?q=${input}&key=${API_KEY}`;
+  const googleBooksURL = `https://www.googleapis.com/books/v1/volumes?q=${input}&maxResults=5&key=${API_KEY}`;
 
   const { data } = useSWR(googleBooksURL, fetcher);
-  console.log(data);
+  console.log(data.items[0].volumeInfo);
   return (
     <>
       <Layout>
