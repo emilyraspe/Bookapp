@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }) {
   const googleBooksURL = `https://www.googleapis.com/books/v1/volumes?q=${input}&maxResults=5&key=${API_KEY}`;
 
   const { data } = useSWR(googleBooksURL, fetcher);
-  console.log(data.items[0].volumeInfo);
+  console.log(data);
   return (
     <>
       <Layout>

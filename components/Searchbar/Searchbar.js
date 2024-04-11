@@ -9,7 +9,7 @@ export default function Searchbar({ handleInputChange }) {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label for="search">search your next favorite book</label>
+        <label htmlFor="search">search your next favorite book</label>
         <input type="text" name="search"></input>
         <button type="submit">Search</button>
       </form>

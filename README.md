@@ -24,7 +24,7 @@ To-Do
 ### 2. Search for books
 
 As the user I want to be able to search for books, based on name or author
-so that I can find out a book to read next
+so that I can find a book to read next
 
 To-Do
 
