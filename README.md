@@ -1,40 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Bookapp for FinalProject
 
-## Getting Started
+## User Stories
 
-First, run the development server:
+### 1. Separate Pages
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+As the user I want to be able to switch between the pages "Homepage", "Search", and "Profile"
+so that I can navigate the App easier
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To-Do
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Navigation Link: Homepage
+- Navigation Link: Search
+- Navigation Link: Profile
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Data fetching needs to happen in pages/\_app
+- Homepage: pages/index.js
+- Search: pages/search/ index.js
+- Profile: pages/profile/index.js
+- Create Navigation component that renders the Links to the pages
+- Create Layout component that renders Navigation component
+- Render Layout component in pages/\_app
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 2. Search for books
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+As the user I want to be able to search for books, based on name or author
+so that I can find out a book to read next
 
-## Learn More
+To-Do
 
-To learn more about Next.js, take a look at the following resources:
+- Create Searchbar component and render in pages/search/ index.js
+- Render an overview of the searched book
+- Create component BookOverview
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Bookdetails
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+As the user I want to be able to click on a book and get a detailed information about the book (author, published date, summary, genre, add to list button, mark as read)
+so that I can learn everything about the book
 
-## Deploy on Vercel
+To-Do
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Create Bookdetails component
+  - Bookprops (author, published, summary, genre)
+- Create pages/book/[slug] that renders the component Bookdetails
+- Use slug to find and display Bookdetails
+- Clicking on the books shows the Bookdetails
+- Back Button is displayed
+- Add to list Button is displayed
+- Mark as read button is displayed
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 4. Homepage
+
+As the user I want to see random book recommendations on the Homepage
+so that I can discover new books
+
+To-Do
+
+- 4 random books are being displayed
+  - Write a function to display 4 random books
+- Create a component RandomBooks
+  - props: name, author
+
+### 5. Booklists
+
+As the user I want to see and create booklists
+so that I can save books that I like
+
+To-Do
+
+- Create a component for OverviewBooklist
+- Create a component for Booklist
+  - Render the books that have been added to that list (BookOverview Component that have been added to a list)
+
+### 6. Profile
+
+As the user I want to be able to see my profilepage
+so that I have an overview of my booklists and can access them
+
+To-Do
+
+- Create a component Profile
+  - that renders Information about the user, the name and the booklist Component
+- Render OverviewBooklist
+- When clicking on a list it shows component Booklist
