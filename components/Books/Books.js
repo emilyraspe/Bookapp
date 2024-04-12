@@ -11,7 +11,7 @@ export default function Books({ books }) {
       {books.map((book) => (
         <div key={book.id}>
           <Link href={`/books/${book.id}`}>
-            <img src={book.volumeInfo.imageLinks?.smallThumbnail}></img>
+            <img src={book.volumeInfo.imageLinks?.thumbnail}></img>
           </Link>
           <h4>{book.volumeInfo.title}</h4>
           <p>{book.volumeInfo.authors}</p>

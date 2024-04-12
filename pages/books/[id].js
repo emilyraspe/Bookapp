@@ -1,8 +1,7 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
-import { useEffect } from "react";
 import BookDetails from "../../components/BookDetails/BookDetails";
 import useSWR from "swr";
+import Link from "next/link";
 
 const fetcher = async (url) => await fetch(url).then((res) => res.json());
 
@@ -12,19 +11,24 @@ export default function BookDetailsPage({ books }) {
 
   const bookURL = `https://www.googleapis.com/books/v1/volumes/${id}`;
   const { data, error } = useSWR(bookURL, fetcher);
-  console.log(bookURL);
-  console.log("==========", data);
+  console.log(data);
 
   if (data) {
     return (
-      <BookDetails
-        name={data.volumeInfo.title}
-        authors={data.volumeInfo.authors}
-        genre={data.volumeInfo.categories}
-        image={data.volumeInfo.imageLinks.thumbnail}
-        published={data.volumeInfo.publishedDate}
-        description={data.volumeInfo.description}
-      />
+      <>
+        <Link href="/search">
+          <button>Back</button>
+        </Link>
+        <BookDetails
+          name={data.volumeInfo.title}
+          authors={data.volumeInfo.authors}
+          categories={data.volumeInfo.categories}
+          image={data.volumeInfo.imageLinks.thumbnail}
+          published={data.volumeInfo.publishedDate}
+          description={data.volumeInfo.description}
+          publisher={data.volumeInfo.publisher}
+        />
+      </>
     );
   }
 }

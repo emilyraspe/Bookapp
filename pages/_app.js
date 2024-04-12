@@ -16,7 +16,6 @@ export default function App({ Component, pageProps }) {
   const googleBooksURL = `https://www.googleapis.com/books/v1/volumes?${searchQuery}&maxResults=5&key=${API_KEY}`;
 
   const { data, error } = useSWR(googleBooksURL, fetcher);
-  console.log("data===========", data);
 
   if (error) {
     return <p>Error loading books. Please try again later.</p>;
@@ -26,7 +25,6 @@ export default function App({ Component, pageProps }) {
     return <p>Search for a book</p>;
   }
   const books = data.items;
-  console.log(books);
 
   return (
     <>
