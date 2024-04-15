@@ -1,7 +1,15 @@
-export default function Profile() {
+import { useSession, signIn, signOut } from "next-auth/react";
+import Profile from "../../components/Profile/Profile";
+
+export default function ProfilePage() {
+  const { data: session } = useSession();
+  if (session) {
+    return <Profile session={session} />;
+  }
   return (
     <>
-      <h1>Profile</h1>
+      This page is only available when signed in <br />
+      <button onClick={() => signIn()}>Sign in</button>
     </>
   );
 }
