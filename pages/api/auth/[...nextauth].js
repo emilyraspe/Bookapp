@@ -20,6 +20,8 @@ export const authOptions = {
           id: profile.sub,
           name: profile.name,
           image: profile.picture,
+          email: profile.email,
+          email_verified: profile.email_verified,
         };
       },
     }),
