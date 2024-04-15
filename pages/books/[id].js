@@ -7,11 +7,23 @@ const fetcher = async (url) => await fetch(url).then((res) => res.json());
 
 export default function BookDetailsPage({ books }) {
   const router = useRouter();
-  const { id } = router.query;
+  const { id } = router.query; //isbn
 
-  const bookURL = `https://www.googleapis.com/books/v1/volumes/${id}`;
+  const bookURL = `https://www.googleapis.com/books/v1/volumes?q=isbn:${id}`;
   const { data, error } = useSWR(bookURL, fetcher);
   console.log(data);
+
+  let bookInfo;
+  if (!data) {
+    return;
+  }
+  if (data.items && data.items.length > 0) {
+    // If 'data.items' exists and is not empty
+    bookInfo = data.items[0].volumeInfo;
+  } else {
+    // If 'data.items' doesn't exist or is empty
+    bookInfo = data.volumeInfo;
+  }
 
   if (data) {
     return (
@@ -20,13 +32,13 @@ export default function BookDetailsPage({ books }) {
           <button>Back</button>
         </Link>
         <BookDetails
-          name={data.volumeInfo.title}
-          authors={data.volumeInfo.authors}
-          categories={data.volumeInfo.categories}
-          image={data.volumeInfo.imageLinks.thumbnail}
-          published={data.volumeInfo.publishedDate}
-          description={data.volumeInfo.description}
-          publisher={data.volumeInfo.publisher}
+          name={bookInfo.title}
+          authors={bookInfo.authors}
+          categories={bookInfo.categories}
+          image={bookInfo.imageLinks.thumbnail}
+          published={bookInfo.publishedDate}
+          description={bookInfo.description}
+          publisher={bookInfo.publisher}
         />
       </>
     );

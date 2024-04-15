@@ -1,5 +1,6 @@
 import Head from "next/head";
 import useSWR from "swr";
+import BestSellerBooks from "../components/BestSellerBooks/BestSellerBooks";
 
 export default function Home() {
   const fetcher = async (url) => await fetch(url).then((res) => res.json());
@@ -7,7 +8,8 @@ export default function Home() {
 
   const bestsellerAPI = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${API_KEY_bestseller}`;
   const { data, error } = useSWR(bestsellerAPI, fetcher);
-  console.log(data);
+
+  const bestSellerBooks = data?.results.books;
 
   return (
     <>
@@ -17,6 +19,7 @@ export default function Home() {
       </Head>
       <main>
         <h1>Homepage</h1>
+        <BestSellerBooks bestSellerBooks={bestSellerBooks} />
       </main>
     </>
   );
