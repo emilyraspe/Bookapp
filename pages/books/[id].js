@@ -7,7 +7,7 @@ const fetcher = async (url) => await fetch(url).then((res) => res.json());
 
 export default function BookDetailsPage({ books }) {
   const router = useRouter();
-  const { id } = router.query; //isbn
+  const { id } = router.query; //this is the isbn now
 
   const bookURL = `https://www.googleapis.com/books/v1/volumes?q=isbn:${id}`;
   const { data, error } = useSWR(bookURL, fetcher);
