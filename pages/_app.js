@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
 
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
   const searchQuery = input ? `q=${input}` : "";
-  const googleBooksURL = `https://www.googleapis.com/books/v1/volumes?${searchQuery}&maxResults=5&key=${API_KEY}`;
+  const googleBooksURL = `https://www.googleapis.com/books/v1/volumes?${searchQuery}&maxResults=15&key=${API_KEY}`;
 
   const { data, error } = useSWR(googleBooksURL, fetcher);
 
@@ -25,7 +25,6 @@ export default function App({ Component, pageProps }) {
     return <p>Search for a book</p>;
   }
   const books = data.items;
-  console.log("books", data.items);
 
   return (
     <>
