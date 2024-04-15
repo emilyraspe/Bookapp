@@ -1,10 +1,12 @@
 import Layout from "../components/Layout/Layout";
 import useSWR from "swr";
 import { useState } from "react";
+import { SessionProvider } from "next-auth/react";
+import Header from "../components/Header/Header";
 
 const fetcher = async (url) => await fetch(url).then((res) => res.json());
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, session }) {
   const [input, setInput] = useState();
 
   function handleInputChange(query) {
@@ -28,13 +30,16 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Layout>
-        <Component
-          {...pageProps}
-          handleInputChange={handleInputChange}
-          books={books}
-        />
-      </Layout>
+      <SessionProvider session={session}>
+        <Header />
+        <Layout>
+          <Component
+            {...pageProps}
+            handleInputChange={handleInputChange}
+            books={books}
+          />
+        </Layout>
+      </SessionProvider>
     </>
   );
 }
