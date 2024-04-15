@@ -10,7 +10,9 @@ export default function Books({ books }) {
     <>
       {books.map((book) => (
         <div key={book.id}>
-          <Link href={`/books/${book.id}`}>
+          <Link
+            href={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}
+          >
             <img src={book.volumeInfo.imageLinks?.thumbnail}></img>
           </Link>
           <h4>{book.volumeInfo.title}</h4>
