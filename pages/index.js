@@ -1,6 +1,14 @@
 import Head from "next/head";
+import useSWR from "swr";
 
 export default function Home() {
+  const fetcher = async (url) => await fetch(url).then((res) => res.json());
+  const API_KEY_bestseller = process.env.NEXT_PUBLIC_API_KEY_bestseller;
+
+  const bestsellerAPI = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${API_KEY_bestseller}`;
+  const { data, error } = useSWR(bestsellerAPI, fetcher);
+  console.log(data);
+
   return (
     <>
       <Head>
