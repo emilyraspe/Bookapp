@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 export default function BookshelfForm() {
   const router = useRouter();
   const { id } = router.query;
-  const { mutate } = useSWR(`/api/bookshelves/`);
+  const { data, mutate } = useSWR(`/api/bookshelves/`);
 
   const [bookshelves, setBookshelves] = useState([]);
 
@@ -13,12 +13,6 @@ export default function BookshelfForm() {
     event.preventDefault();
     const now = new Date();
     const dateTime = now.toLocaleString();
-    /*   const { value } = event.target.elements.bookshelf;
-    const newBookshelf = {
-      name: value,
-      created: dateTime,
-    }; */
-    /*     setBookshelves([...bookshelves, newBookshelf]); */
 
     const formData = new FormData(event.target);
     const bookshelfData = Object.fromEntries(formData);
@@ -47,7 +41,7 @@ export default function BookshelfForm() {
       <div>
         <h2>Bookshelves</h2>
         <ul>
-          {bookshelves.map((shelf, id) => (
+          {data.map((shelf, id) => (
             <a href="#">
               <li key={id}>
                 {shelf.name} - Created: {shelf.created}
