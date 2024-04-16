@@ -1,17 +1,13 @@
 import dbConnect from "../../../db/connect";
 import Bookshelf from "../../../db/models/Bookshelf";
-import { getSession } from "next-auth/react";
 
 export default async function handler(request, response) {
-  // get user
-  const { method, body } = request;
-  /*   const session = await getSession({ req: request }); */
   await dbConnect();
 
   if (request.method === "POST") {
-    console.log("========================", request.body);
     try {
       const newBookshelf = await Bookshelf.create(request.body);
+      console.log(newBookshelf);
       response
         .status(200)
         .json({ status: "uploaded new bookshelf", newBookshelf });

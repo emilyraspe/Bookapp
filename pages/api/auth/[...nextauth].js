@@ -16,11 +16,13 @@ export const authOptions = {
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
       profile(profile) {
+        console.log(profile);
         return {
           id: profile.sub,
           name: profile.name,
           image: profile.picture,
           email: profile.email,
+          bookshelves: [],
         };
       },
     }),

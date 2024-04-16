@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const bookshelfSchema = new Schema({
   name: { type: String, required: true },
   created: { type: String, default: Date.now },
-  /*   user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, */
+  userId: { type: String },
 });
 
 const Bookshelf =
