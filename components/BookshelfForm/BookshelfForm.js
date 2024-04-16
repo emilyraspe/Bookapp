@@ -51,7 +51,7 @@ export default function BookshelfForm() {
             {data
               .filter((shelf) => shelf.userId === session.user.userId)
               .map((shelf, id) => (
-                <a href="#" key={id}>
+                <a href={`bookshelves/${id}`} key={id}>
                   <li>
                     {shelf.name} - Created: {shelf.created}
                   </li>
