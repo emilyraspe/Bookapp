@@ -1,3 +1,5 @@
+import AddToBookshelfForm from "../AddToBookshelfForm/AddToBookshelfForm";
+
 export default function BookDetails({
   name,
   authors,
@@ -19,13 +21,7 @@ export default function BookDetails({
         <div>{categorie}</div>
       ))}
       <button>Mark as read</button>
-      <form>
-        <label>Add to readinglist</label>
-        <select>
-          <option>List 1</option>
-          <option>List 2</option>
-        </select>
-      </form>
+      <AddToBookshelfForm />
     </div>
   );
 }
