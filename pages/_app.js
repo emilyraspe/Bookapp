@@ -3,6 +3,7 @@ import useSWR from "swr";
 import { useState } from "react";
 import { SessionProvider } from "next-auth/react";
 import Header from "../components/Header/Header";
+import { SWRConfig } from "swr";
 
 const fetcher = async (url) => await fetch(url).then((res) => res.json());
 
@@ -30,16 +31,28 @@ export default function App({ Component, pageProps, session }) {
 
   return (
     <>
-      <SessionProvider session={session}>
-        <Header />
-        <Layout>
-          <Component
-            {...pageProps}
-            handleInputChange={handleInputChange}
-            books={books}
-          />
-        </Layout>
-      </SessionProvider>
+      <SWRConfig
+        value={{
+          fetcher: async (...args) => {
+            const response = await fetch(...args);
+            if (!response.ok) {
+              throw new Error(`Request with ${JSON.stringify(args)} failed.`);
+            }
+            return await response.json();
+          },
+        }}
+      >
+        <SessionProvider session={session}>
+          <Header />
+          <Layout>
+            <Component
+              {...pageProps}
+              handleInputChange={handleInputChange}
+              books={books}
+            />
+          </Layout>
+        </SessionProvider>
+      </SWRConfig>
     </>
   );
 }

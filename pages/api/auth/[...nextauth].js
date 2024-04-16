@@ -21,7 +21,6 @@ export const authOptions = {
           name: profile.name,
           image: profile.picture,
           email: profile.email,
-          email_verified: profile.email_verified,
         };
       },
     }),
