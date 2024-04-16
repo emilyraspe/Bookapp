@@ -2,6 +2,7 @@ import { useState } from "react";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
+import BookshelfList from "../BookshelfList/BookshelfList";
 
 export default function BookshelfForm() {
   const { data: session } = useSession();
@@ -47,17 +48,7 @@ export default function BookshelfForm() {
         <h2>Bookshelves</h2>
 
         {session?.user.userId && data ? (
-          <ul>
-            {data
-              .filter((shelf) => shelf.userId === session.user.userId)
-              .map((shelf, id) => (
-                <a href={`bookshelves/${id}`} key={id}>
-                  <li>
-                    {shelf.name} - Created: {shelf.created}
-                  </li>
-                </a>
-              ))}
-          </ul>
+          <BookshelfList data={data} session={session} />
         ) : (
           <p></p>
         )}
