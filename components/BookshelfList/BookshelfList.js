@@ -4,10 +4,8 @@ export default function BookshelfList({ data, session }) {
       {data
         .filter((shelf) => shelf.userId === session.user.userId)
         .map((shelf, id) => (
-          <a href={`bookshelves/${id}`} key={id}>
-            <li>
-              {shelf.name} - Created: {shelf.created}
-            </li>
+          <a href={`bookshelves/${shelf._id}`} key={shelf._id}>
+            <li>{shelf.name}</li>
           </a>
         ))}
     </ul>
