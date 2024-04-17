@@ -1,12 +1,13 @@
-import Books from "../Books/Books";
 import Link from "next/link";
+import { useRouter } from "next/router.js";
+
+import useSWR from "swr";
 
 export default function Bookshelf({ selectedBookshelf }) {
+  const { mutate } = useSWR(`/api/bookshelves/`);
   const books = selectedBookshelf?.books;
-  console.log("link", selectedBookshelf?._id);
 
   async function handleDelete(bookId) {
-    console.log("TEEEEST", bookId);
     try {
       const response = await fetch(
         `/api/bookshelves/${selectedBookshelf?._id}`,
@@ -18,6 +19,12 @@ export default function Bookshelf({ selectedBookshelf }) {
           body: bookId,
         }
       );
+
+      if (response.ok) {
+        mutate();
+        console.log("Component re-rendered");
+        console.log("Selected Bookshelf after deletion:", selectedBookshelf);
+      }
     } catch (error) {
       console.error("Error deleting book:", error);
     }
@@ -30,7 +37,6 @@ export default function Bookshelf({ selectedBookshelf }) {
       {books?.map((book) =>
         book.items.map((obj) => (
           <div>
-            {console.log("BOOK üüüüüüID", obj.id)}
             <button onClick={() => handleDelete(obj.id)}>
               Delete from Bookshelf
             </button>

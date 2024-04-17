@@ -7,14 +7,12 @@ export default function AddToBookshelfForm({ bookdata }) {
 
   async function handleAddToBookshelf(event) {
     event.preventDefault();
-    console.log("Bookdata in AddToBooksheelfForm", bookdata);
-    console.log("DATA in AddToBooksheelfForm", data);
 
-    //
     if (!data) return;
 
     try {
       const shelf = data.find((shelf) => shelf.name === selectedShelf);
+      console.log("========", data);
 
       // Push the bookdata into the selected shelf's booksarray
       shelf.books.push(bookdata);
@@ -33,7 +31,7 @@ export default function AddToBookshelfForm({ bookdata }) {
       console.error("Error adding book to bookshelf:", error);
     }
   }
-  //
+
   function handleSelectChange(event) {
     setSelectedShelf(event.target.value);
   }

@@ -31,14 +31,17 @@ export default async function handler(request, response) {
       const getBookshelf = await Bookshelf.findById(id);
 
       const updatedBooksArray = getBookshelf.books.filter(
-        (book) => book.items[0].id === bookId
+        (book) => book.items[0].id !== bookId
       );
 
       getBookshelf.books = updatedBooksArray;
+      console.log("==========", updatedBooksArray);
+      await getBookshelf.save();
 
       const updatedBookshelf = await Bookshelf.findByIdAndUpdate(
         id,
-        getBookshelf
+        getBookshelf,
+        { new: true }
       );
 
       console.log("updatedBookshelf", updatedBookshelf);
