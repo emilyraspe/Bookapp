@@ -8,6 +8,7 @@ export default function BookDetails({
   published,
   description,
   publisher,
+  bookdata,
 }) {
   return (
     <div>
@@ -21,7 +22,7 @@ export default function BookDetails({
         <div>{categorie}</div>
       ))}
       <button>Mark as read</button>
-      <AddToBookshelfForm />
+      <AddToBookshelfForm bookdata={bookdata} />
     </div>
   );
 }

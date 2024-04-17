@@ -5,6 +5,7 @@ const bookshelfSchema = new Schema({
   name: { type: String, required: true },
   created: { type: String, default: Date.now },
   userId: { type: String },
+  books: [{ type: Object }],
 });
 
 const Bookshelf =

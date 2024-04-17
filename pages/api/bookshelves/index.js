@@ -15,9 +15,7 @@ export default async function handler(request, response) {
       console.log("ERROR", error);
       response.status(500).json({ error: error.message });
     }
-  }
-
-  if (request.method === "GET") {
+  } else if (request.method === "GET") {
     const bookshelves = await Bookshelf.find();
     return response.status(200).json(bookshelves);
   } else {
