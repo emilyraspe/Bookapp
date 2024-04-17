@@ -18,7 +18,16 @@ export default async function handler(request, response) {
   } else if (request.method === "GET") {
     const bookshelves = await Bookshelf.find();
     return response.status(200).json(bookshelves);
-  } else {
+  }
+  //deleting Bookshelf
+  else if (request.method === "DELETE") {
+    const { id } = request.query;
+    console.log("=======================================");
+    await Bookshelf.findByIdAndDelete(id);
+    response.status(200).json({ status: "Check" });
+  }
+  //
+  else {
     return response.status(405).json({ message: "Method not allowed" });
   }
 }

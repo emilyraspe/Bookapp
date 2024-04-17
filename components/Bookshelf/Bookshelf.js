@@ -5,8 +5,17 @@ import useSWR from "swr";
 
 export default function Bookshelf({ selectedBookshelf }) {
   const { mutate } = useSWR(`/api/bookshelves/`);
+  const router = useRouter();
   const books = selectedBookshelf?.books;
 
+  async function deleteBookshelf() {
+    console.log("selectedBookshelf?", selectedBookshelf?._id);
+    const response = await fetch(`/api/bookshelves/${selectedBookshelf?._id}`, {
+      method: "DELETE",
+    });
+  }
+
+  //delete book out of bookshelf
   async function handleDelete(bookId) {
     try {
       const response = await fetch(
@@ -22,8 +31,6 @@ export default function Bookshelf({ selectedBookshelf }) {
 
       if (response.ok) {
         mutate();
-        console.log("Component re-rendered");
-        console.log("Selected Bookshelf after deletion:", selectedBookshelf);
       }
     } catch (error) {
       console.error("Error deleting book:", error);
@@ -34,6 +41,7 @@ export default function Bookshelf({ selectedBookshelf }) {
     <>
       <h1>{selectedBookshelf?.name}</h1>
       <p>Created: {selectedBookshelf?.created}</p>
+      <button onClick={deleteBookshelf}>Delete Bookshelf</button>
       {books?.map((book) =>
         book.items.map((obj) => (
           <div>

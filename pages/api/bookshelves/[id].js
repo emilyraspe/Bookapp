@@ -26,26 +26,21 @@ export default async function handler(request, response) {
     try {
       const { id } = request.query;
       const bookId = request.body;
-      console.log("request", typeof bookId);
-      console.log("Received bookId:", bookId);
-      const getBookshelf = await Bookshelf.findById(id);
-
-      const updatedBooksArray = getBookshelf.books.filter(
-        (book) => book.items[0].id !== bookId
-      );
-
-      getBookshelf.books = updatedBooksArray;
-      console.log("==========", updatedBooksArray);
-      await getBookshelf.save();
 
       const updatedBookshelf = await Bookshelf.findByIdAndUpdate(
         id,
-        getBookshelf,
-        { new: true }
+        {
+          $pull: {
+            books: {
+              items: { $elemMatch: { id: bookId } },
+            },
+          },
+        },
+        {
+          new: true,
+        }
       );
 
-      console.log("updatedBookshelf", updatedBookshelf);
-      // console.log("ITEMS", updatedBookshelf.books[0].items[0].id);
       return response.status(200).json(updatedBookshelf);
     } catch (error) {
       console.log("ERROR", error);
