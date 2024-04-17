@@ -2,9 +2,26 @@ import Books from "../Books/Books";
 import Link from "next/link";
 
 export default function Bookshelf({ selectedBookshelf }) {
-  console.log("selectedBookshelf", selectedBookshelf);
-
   const books = selectedBookshelf?.books;
+  console.log("link", selectedBookshelf?._id);
+
+  async function handleDelete(bookId) {
+    console.log("TEEEEST", bookId);
+    try {
+      const response = await fetch(
+        `/api/bookshelves/${selectedBookshelf?._id}`,
+        {
+          method: "DELETE",
+          header: {
+            "Content-Type": "application/json",
+          },
+          body: bookId,
+        }
+      );
+    } catch (error) {
+      console.error("Error deleting book:", error);
+    }
+  }
 
   return (
     <>
@@ -13,7 +30,10 @@ export default function Bookshelf({ selectedBookshelf }) {
       {books?.map((book) =>
         book.items.map((obj) => (
           <div>
-            <button>Delete from Bookshelf</button>
+            {console.log("BOOK üüüüüüID", obj.id)}
+            <button onClick={() => handleDelete(obj.id)}>
+              Delete from Bookshelf
+            </button>
             <Link
               href={`/books/${obj.volumeInfo.industryIdentifiers[0].identifier}`}
             >
