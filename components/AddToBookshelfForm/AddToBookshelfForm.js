@@ -11,7 +11,8 @@ export default function AddToBookshelfForm({ bookdata }) {
     if (!data) return;
 
     try {
-      const shelf = data.find((shelf) => shelf.name === selectedShelf);
+      const shelf = data?.find((shelf) => shelf.name === selectedShelf);
+      console.log("Selected Shelf:", selectedShelf);
       console.log("========", data);
 
       // Push the bookdata into the selected shelf's booksarray
@@ -40,8 +41,11 @@ export default function AddToBookshelfForm({ bookdata }) {
     <form onSubmit={handleAddToBookshelf}>
       <label>Add book to</label>
       <select value={selectedShelf} onChange={handleSelectChange}>
-        {data?.map((shelf, id) => (
-          <option> {shelf.name}</option>
+        <option value="" disabled>
+          Select a shelf
+        </option>
+        {data?.map((shelf, _id) => (
+          <option key={_id}>{shelf.name}</option>
         ))}
       </select>
       <button type="submit">Add to Bookshelf</button>

@@ -5,10 +5,10 @@ import { SessionProvider } from "next-auth/react";
 import Header from "../components/Header/Header";
 import { SWRConfig } from "swr";
 
-const fetcher = async (url) => await fetch(url).then((res) => res.json());
+/* const fetcher = async (url) => await fetch(url).then((res) => res.json()); */
 
 export default function App({ Component, pageProps, session }) {
-  const [input, setInput] = useState();
+  /*  const [input, setInput] = useState();
 
   function handleInputChange(query) {
     setInput(query);
@@ -27,7 +27,7 @@ export default function App({ Component, pageProps, session }) {
   if (!data) {
     return <p>Search for a book</p>;
   }
-  const books = data.items;
+  const books = data.items; */
 
   return (
     <>
@@ -47,8 +47,8 @@ export default function App({ Component, pageProps, session }) {
           <Layout>
             <Component
               {...pageProps}
-              handleInputChange={handleInputChange}
-              books={books}
+              /*  handleInputChange={handleInputChange}
+              books={books} */
             />
           </Layout>
         </SessionProvider>
