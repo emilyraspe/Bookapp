@@ -53,7 +53,7 @@ export default function AddToBookshelfForm({ bookdata }) {
         </select>
         <button type="submit">Add to Bookshelf</button>
       </form>
-      {isSuccess && <p>Book added successfully!</p>}
+      {isSuccess ? <p>Book added successfully!</p> : null}
     </>
   );
 }
