@@ -10,9 +10,14 @@ export default function Bookshelf({ selectedBookshelf }) {
 
   async function deleteBookshelf() {
     console.log("selectedBookshelf?", selectedBookshelf?._id);
-    const response = await fetch(`/api/bookshelves/${selectedBookshelf?._id}`, {
+    const response = await fetch(`/api/bookshelves/`, {
       method: "DELETE",
+      body: selectedBookshelf._id,
     });
+    if (response.ok) {
+      router.push("/profile");
+      mutate();
+    }
   }
 
   //delete book out of bookshelf

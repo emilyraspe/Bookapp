@@ -8,6 +8,7 @@ export default async function handler(request, response) {
     try {
       const newBookshelf = await Bookshelf.create(request.body);
       console.log(newBookshelf);
+
       response
         .status(200)
         .json({ status: "uploaded new bookshelf", newBookshelf });
@@ -21,9 +22,9 @@ export default async function handler(request, response) {
   }
   //deleting Bookshelf
   else if (request.method === "DELETE") {
-    const { id } = request.query;
-    console.log("=======================================");
+    const id = request.body;
     await Bookshelf.findByIdAndDelete(id);
+
     response.status(200).json({ status: "Check" });
   }
   //
