@@ -8,6 +8,7 @@ export default async function handler(request, response) {
     try {
       const newBookshelf = await Bookshelf.create(request.body);
       console.log(newBookshelf);
+
       response
         .status(200)
         .json({ status: "uploaded new bookshelf", newBookshelf });
@@ -15,12 +16,19 @@ export default async function handler(request, response) {
       console.log("ERROR", error);
       response.status(500).json({ error: error.message });
     }
-  }
-
-  if (request.method === "GET") {
+  } else if (request.method === "GET") {
     const bookshelves = await Bookshelf.find();
     return response.status(200).json(bookshelves);
-  } else {
+  }
+  //deleting Bookshelf
+  else if (request.method === "DELETE") {
+    const id = request.body;
+    await Bookshelf.findByIdAndDelete(id);
+
+    response.status(200).json({ status: "Check" });
+  }
+  //
+  else {
     return response.status(405).json({ message: "Method not allowed" });
   }
 }

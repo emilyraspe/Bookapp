@@ -11,7 +11,7 @@ export default function BookDetailsPage({ books }) {
 
   const bookURL = `https://www.googleapis.com/books/v1/volumes?q=isbn:${id}`;
   const { data, error } = useSWR(bookURL, fetcher);
-  console.log(data);
+  console.log("BOOKDATA", data);
 
   let bookInfo;
   if (!data) {
@@ -39,6 +39,7 @@ export default function BookDetailsPage({ books }) {
           published={bookInfo.publishedDate}
           description={bookInfo.description}
           publisher={bookInfo.publisher}
+          bookdata={data}
         />
       </>
     );
