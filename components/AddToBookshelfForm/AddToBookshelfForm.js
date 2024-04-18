@@ -1,8 +1,10 @@
 import useSWR from "swr";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 export default function AddToBookshelfForm({ bookdata }) {
   const { data, mutate } = useSWR(`/api/bookshelves/`);
+  const { data: session } = useSession();
   const [selectedShelf, setSelectedShelf] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -38,7 +40,8 @@ export default function AddToBookshelfForm({ bookdata }) {
   function handleSelectChange(event) {
     setSelectedShelf(event.target.value);
   }
-
+  console.log("==============", data);
+  console.log("UserId", session.user.userId);
   return (
     <>
       <form onSubmit={handleAddToBookshelf}>
@@ -47,9 +50,11 @@ export default function AddToBookshelfForm({ bookdata }) {
           <option value="" disabled>
             Select a shelf
           </option>
-          {data?.map((shelf, _id) => (
-            <option key={_id}>{shelf.name}</option>
-          ))}
+          {data
+            ?.filter((shelf) => shelf.userId === session.user.userId)
+            .map((shelf, _id) => (
+              <option key={_id}>{shelf.name}</option>
+            ))}
         </select>
         <button type="submit">Add to Bookshelf</button>
       </form>

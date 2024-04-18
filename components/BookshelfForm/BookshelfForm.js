@@ -36,6 +36,7 @@ export default function BookshelfForm() {
       event.target.reset();
     }
   }
+  console.log("DAAAAATAAAAAAA", data);
 
   return (
     <>
