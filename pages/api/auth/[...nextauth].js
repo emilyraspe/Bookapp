@@ -15,7 +15,14 @@ export const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      callbackUrl: "https://bookapp-ldg9xye68-emilyraspes-projects.vercel.app/",
+      authorization: {
+        params: {
+          prompt: "consent",
+          access_type: "offline",
+          response_type: "code",
+        },
+      },
+
       profile(profile) {
         return {
           id: profile.sub,
