@@ -1,6 +1,5 @@
 import useSWR from "swr";
 import { useSession } from "next-auth/react";
-import Link from "next/link";
 import Books from "../Books/Books";
 
 export default function MarkedAsRead() {
@@ -20,6 +19,10 @@ export default function MarkedAsRead() {
   }
 
   const userBooks = data.filter((item) => item.userId === currentUser);
+
+  if (userBooks.length === 0) {
+    return <p>No books found for the current user.</p>;
+  }
 
   return (
     <>

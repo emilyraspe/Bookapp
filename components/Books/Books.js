@@ -5,13 +5,19 @@ export default function Books({ books }) {
   if (!books || books.length === 0) {
     return <p>No books found. Please serach for book</p>;
   }
+  console.log(books);
 
   return (
     <>
       {books.map((book) => (
         <div key={book.id}>
           <Link
-            href={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}
+            href={`/books/${
+              book.volumeInfo.industryIdentifiers &&
+              book.volumeInfo.industryIdentifiers.length > 0
+                ? book.volumeInfo.industryIdentifiers[0].identifier
+                : "#"
+            }`}
           >
             <img src={book.volumeInfo.imageLinks?.thumbnail}></img>
           </Link>
