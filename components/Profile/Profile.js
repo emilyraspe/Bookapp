@@ -1,3 +1,4 @@
+import Link from "next/link";
 import BookshelfForm from "../BookshelfForm/BookshelfForm";
 
 export default function Profile({ session }) {
@@ -5,6 +6,7 @@ export default function Profile({ session }) {
     <>
       <h1>{session.user.name}</h1>
       <img src={session.user.image} />
+      <Link href="/markedAsRead">Books that I read</Link>
       <BookshelfForm />
     </>
   );
