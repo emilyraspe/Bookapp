@@ -15,8 +15,8 @@ export const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
+      callbackUrl: "https://bookapp-ldg9xye68-emilyraspes-projects.vercel.app/",
       profile(profile) {
-        console.log(profile);
         return {
           id: profile.sub,
           name: profile.name,
