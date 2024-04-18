@@ -6,7 +6,7 @@ export default function Profile({ session }) {
     <>
       <h1>{session.user.name}</h1>
       <img src={session.user.image} />
-      <Link href="/markedAsRead">Books that I read</Link>
+      <Link href="/markedasread">Books that I read</Link>
       <BookshelfForm />
     </>
   );

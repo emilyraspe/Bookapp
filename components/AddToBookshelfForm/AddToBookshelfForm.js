@@ -15,8 +15,6 @@ export default function AddToBookshelfForm({ bookdata }) {
 
     try {
       const shelf = data?.find((shelf) => shelf.name === selectedShelf);
-      console.log("Selected Shelf:", selectedShelf);
-      console.log("========", data);
 
       // Push the bookdata into the selected shelf's booksarray
       shelf.books.push(bookdata);

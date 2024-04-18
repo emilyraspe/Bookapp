@@ -1,4 +1,5 @@
 import AddToBookshelfForm from "../AddToBookshelfForm/AddToBookshelfForm";
+import { useSession } from "next-auth/react";
 
 export default function BookDetails({
   name,
@@ -10,6 +11,26 @@ export default function BookDetails({
   publisher,
   bookdata,
 }) {
+  const { data: session } = useSession();
+
+  async function addToReadBooks(event) {
+    event.preventDefault();
+
+    console.log("hi", bookdata.items[0]);
+    console.log("SESSOIN", session);
+
+    const response = await fetch(`/api/readBooks/`, {
+      method: "PUT",
+      body: JSON.stringify({
+        book: bookdata.items[0],
+        userId: session.user.userId,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
   return (
     <div>
       <h1>{name}</h1>
@@ -21,7 +42,8 @@ export default function BookDetails({
       {categories.map((categorie) => (
         <div>{categorie}</div>
       ))}
-      <button>Mark as read</button>
+
+      <button onClick={addToReadBooks}>Mark as read</button>
       <AddToBookshelfForm bookdata={bookdata} />
     </div>
   );
