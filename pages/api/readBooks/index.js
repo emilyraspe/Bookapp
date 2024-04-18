@@ -22,7 +22,6 @@ export default async function handler(request, response) {
   } else if (request.method === "GET") {
     try {
       const readBooksData = await ReadBooks.find();
-      console.log("!!!!!", readBooksData);
 
       return response.status(200).json(readBooksData);
     } catch (error) {

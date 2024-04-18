@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import Books from "../Books/Books";
 
 export default function MarkedAsRead() {
   const { data: session } = useSession();
@@ -10,25 +11,19 @@ export default function MarkedAsRead() {
   if (!session) {
     return <p>Please sign in</p>;
   }
-  console.log(data);
+  if (error) {
+    return <p>Error fetching data</p>;
+  }
+
+  if (!data) {
+    return <p>Loading...</p>;
+  }
 
   const userBooks = data.filter((item) => item.userId === currentUser);
 
-  console.log("userBooks", userBooks);
-
   return (
     <>
-      {userBooks[0].books.map((book) => (
-        <div key={book.id}>
-          <Link
-            href={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}
-          >
-            <img src={book.volumeInfo.imageLinks?.thumbnail}></img>
-          </Link>
-          <h4>{book.volumeInfo.title}</h4>
-          <p>{book.volumeInfo.authors}</p>
-        </div>
-      ))}
+      <Books books={userBooks[0].books} />
     </>
   );
 }
