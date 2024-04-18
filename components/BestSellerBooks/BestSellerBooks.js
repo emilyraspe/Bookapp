@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function BestSellerBooks({ bestSellerBooks }) {
   if (!bestSellerBooks || bestSellerBooks.length === 0) {
-    return <p>Books not available</p>;
+    return <p>Books not available. Please try again in two minutes</p>;
   }
 
   return (
