@@ -23,9 +23,12 @@ export default function MarkedAsRead() {
   if (userBooks.length === 0) {
     return <p>No books found for the current user.</p>;
   }
+  console.log("CURRENT", userBooks[0].books.length);
+  const BooksReadNumber = userBooks[0].books.length;
 
   return (
     <>
+      <h3>You read {BooksReadNumber} Books in total</h3>
       <Books books={userBooks[0].books} />
     </>
   );

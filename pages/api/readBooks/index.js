@@ -33,7 +33,6 @@ export default async function handler(request, response) {
   else if (request.method === "DELETE") {
     const { userId } = request.body;
     const { currentBook } = request.body;
-    console.log("========!!!", currentBook);
 
     const updatedReadBooks = await ReadBooks.findOneAndUpdate(
       { userId: userId },
