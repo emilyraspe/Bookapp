@@ -27,10 +27,10 @@ export default function Bookshelf({ selectedBookshelf }) {
         `/api/bookshelves/${selectedBookshelf?._id}`,
         {
           method: "DELETE",
-          header: {
+          headers: {
             "Content-Type": "application/json",
           },
-          body: bookId,
+          body: JSON.stringify(bookId),
         }
       );
 

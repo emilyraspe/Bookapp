@@ -7,6 +7,5 @@ export default function BookshelvesPage() {
   const router = useRouter();
   const { id } = router.query;
   const selectedBookshelf = data?.find((shelf) => shelf._id === id);
-  console.log("DATA", selectedBookshelf);
   return <Bookshelf selectedBookshelf={selectedBookshelf} />;
 }
