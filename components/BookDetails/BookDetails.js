@@ -1,7 +1,6 @@
 import AddToBookshelfForm from "../AddToBookshelfForm/AddToBookshelfForm";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
-import { useState } from "react";
 
 export default function BookDetails({
   name,
@@ -82,7 +81,7 @@ export default function BookDetails({
     );
   };
 
-  console.log("readbooks from database", readBooks);
+  //stuff for date that book was added
   const currentUSER = readBooks?.find(
     (obj) => obj.userId === session?.user.userId
   );
@@ -109,7 +108,7 @@ export default function BookDetails({
             {isBookFound() ? "Already Read" : "Mark as read"}
           </button>
           <p>
-            {isBookFound() ? `"Was marked as read on ${bookForDate?.date}` : ""}
+            {isBookFound() ? `Was marked as read on ${bookForDate?.date}` : ""}
           </p>
         </>
       ) : (
