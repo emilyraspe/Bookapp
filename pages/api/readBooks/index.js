@@ -28,6 +28,22 @@ export default async function handler(request, response) {
       console.error("ERROR", error);
       return response.status(500).json({ error: error.message });
     }
+  }
+  //deleting book
+  else if (request.method === "DELETE") {
+    const { userId } = request.body;
+    const { currentBook } = request.body;
+    console.log("========!!!", currentBook);
+
+    const updatedReadBooks = await ReadBooks.findOneAndUpdate(
+      { userId: userId },
+      { $pull: { books: { id: currentBook } } },
+      { new: true }
+    );
+
+    console.log("updatedReadBooks", updatedReadBooks);
+
+    return response.status(200).json(updatedReadBooks);
   } else {
     return response.status(405).json({ message: "Method not allowed" });
   }

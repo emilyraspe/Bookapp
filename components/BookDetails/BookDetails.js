@@ -1,6 +1,7 @@
 import AddToBookshelfForm from "../AddToBookshelfForm/AddToBookshelfForm";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
+import RemoveFromRead from "../RemoveFromRead/RemoveFromRead";
 
 export default function BookDetails({
   name,
@@ -104,9 +105,15 @@ export default function BookDetails({
 
       {session ? (
         <>
-          <button onClick={addToReadBooks} disabled={isBookFound()}>
-            {isBookFound() ? "Already Read" : "Mark as read"}
-          </button>
+          {isBookFound() ? (
+            <RemoveFromRead bookdata={bookdata} />
+          ) : (
+            <button onClick={addToReadBooks} /* disabled={isBookFound()} */>
+              {" "}
+              Mark as read
+            </button>
+          )}
+
           <p>
             {isBookFound() ? `Was marked as read on ${bookForDate?.date}` : ""}
           </p>
