@@ -1,9 +1,8 @@
 import Layout from "../components/Layout/Layout";
-import useSWR from "swr";
-import { useState } from "react";
 import { SessionProvider } from "next-auth/react";
 import Header from "../components/Header/Header";
 import { SWRConfig } from "swr";
+import "../components/Navigation/Navigation.css";
 
 /* const fetcher = async (url) => await fetch(url).then((res) => res.json()); */
 

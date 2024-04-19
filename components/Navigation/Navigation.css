@@ -1,0 +1,13 @@
+@import url("../../pages/app.css");
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  bottom: 0;
+  position: fixed;
+  padding: 25px;
+  background-color: var(--color-white);
+  width: 100%;
+  border-top: 1px solid var(--color-black);
+}

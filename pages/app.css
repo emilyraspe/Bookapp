@@ -1,0 +1,23 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --color-white: #faf9f9;
+  --color-black: #252422;
+  --color-darkgrey: #6c757d;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+a:hover {
+  color: var(--color-darkgrey);
+}
+
+.underlined {
+  text-decoration: underline;
+}
