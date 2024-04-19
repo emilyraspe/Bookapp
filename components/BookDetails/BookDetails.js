@@ -1,6 +1,7 @@
 import AddToBookshelfForm from "../AddToBookshelfForm/AddToBookshelfForm";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
+import { useState } from "react";
 
 export default function BookDetails({
   name,
@@ -43,26 +44,24 @@ export default function BookDetails({
 
       if (readBooksOfUser) {
         //find current book in array
+        //bookdata coming from google api
         const currentBook = readBooksOfUser.books.find(
           (book) => book.id === bookdata.items[0].id
         );
-        if (currentBook) {
-          console.log("Current book found:", currentBook);
-          return;
-        } else {
-          console.log("Current book not found");
 
-          await fetch(`/api/readBooks/`, {
+        if (!currentBook) {
+          const response = await fetch(`/api/readBooks/`, {
             method: "PUT",
             body: JSON.stringify({
               book: bookWithDate,
               userId: session.user.userId,
-              date: dateTime,
             }),
             headers: {
               "Content-Type": "application/json",
             },
           });
+          const data = await response.json();
+
           mutate();
         }
       }
@@ -73,7 +72,7 @@ export default function BookDetails({
 
   const isBookFound = () => {
     if (!session || !readBooks) {
-      return false; // Return false if session or readBooks is not available
+      return false;
     }
 
     return readBooks.some(
@@ -82,6 +81,15 @@ export default function BookDetails({
         obj.books.some((book) => book.id === bookdata.items[0].id)
     );
   };
+
+  console.log("readbooks from database", readBooks);
+  const currentUSER = readBooks?.find(
+    (obj) => obj.userId === session?.user.userId
+  );
+
+  const bookForDate = currentUSER?.books.find(
+    (book) => book.id === bookdata.items[0].id
+  );
 
   return (
     <div>
@@ -100,7 +108,9 @@ export default function BookDetails({
           <button onClick={addToReadBooks} disabled={isBookFound()}>
             {isBookFound() ? "Already Read" : "Mark as read"}
           </button>
-          <p>{isBookFound() ? "Was marked as read on" : ""}</p>
+          <p>
+            {isBookFound() ? `"Was marked as read on ${bookForDate?.date}` : ""}
+          </p>
         </>
       ) : (
         ""

@@ -4,7 +4,6 @@ const { Schema } = mongoose;
 const readBooksSchema = new Schema({
   userId: { type: String },
   books: [{ type: Object }],
-  date: { type: String },
 });
 
 const ReadBooks =
