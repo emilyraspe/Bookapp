@@ -16,7 +16,7 @@ export default function Search() {
 
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
   const searchQuery = input ? `q=${input}` : "";
-  const googleBooksURL = `https://www.googleapis.com/books/v1/volumes?${searchQuery}&maxResults=15&key=${API_KEY}`;
+  const googleBooksURL = `https://www.googleapis.com/books/v1/volumes?${searchQuery}&maxResults=16&key=${API_KEY}`;
 
   const { data, error } = useSWR(googleBooksURL, fetcher);
 
@@ -32,7 +32,9 @@ export default function Search() {
     <>
       <h1>Search</h1>
       <Searchbar handleInputChange={handleInputChange} />
-      <Books books={books} />
+      <div className="books-container">
+        <Books books={books} />
+      </div>
     </>
   );
 }

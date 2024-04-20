@@ -10,7 +10,7 @@ export default function Books({ books }) {
   return (
     <>
       {books.map((book) => (
-        <div key={book.id}>
+        <div key={book.id} className="book-container">
           <Link
             href={`/books/${
               book.volumeInfo.industryIdentifiers &&
@@ -19,10 +19,13 @@ export default function Books({ books }) {
                 : "#"
             }`}
           >
-            <img src={book.volumeInfo.imageLinks?.thumbnail}></img>
+            <img
+              src={book.volumeInfo.imageLinks?.thumbnail}
+              className="bookimage-small"
+            ></img>
           </Link>
-          <h4>{book.volumeInfo.title}</h4>
-          <p>{book.volumeInfo.authors}</p>
+          <p className="title">{book.volumeInfo.title}</p>
+          <p className="author">{book.volumeInfo.authors}</p>
         </div>
       ))}
     </>

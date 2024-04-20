@@ -6,6 +6,8 @@ import "../components/Header/Header.css";
 import "./index.css";
 import "../components/BestSellerBooks/BestSellerBooks.css";
 import "../components/Searchbar/Searchbar.css";
+import "./search/search.css";
+import "../components/Books/Books.css";
 
 export default function App({ Component, pageProps, session }) {
   return (
