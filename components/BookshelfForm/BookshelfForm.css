@@ -1,0 +1,20 @@
+.bookshelfForm-form {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.bookshelfForm-input {
+  background: none;
+  border: none;
+
+  padding: 10px;
+  width: 200px;
+}
+
+.bookshelfForm-container {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-black);
+}

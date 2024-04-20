@@ -10,6 +10,7 @@ import "./search/search.css";
 import "../components/Books/Books.css";
 import "../components/BookDetails/BookDetails.css";
 import "../components/AddToBookshelfForm/AddToBookshelfForm.css";
+import "../components/BookshelfForm/BookshelfForm.css";
 
 export default function App({ Component, pageProps, session }) {
   return (

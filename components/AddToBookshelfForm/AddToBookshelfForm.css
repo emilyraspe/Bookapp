@@ -1,0 +1,22 @@
+.details-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-lightgrey);
+  padding: 10px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.details-select {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--color-black);
+  width: 60%;
+  font-family: var(--font-sanSerif);
+  font-size: 16px;
+}
+
+.details-form-button {
+  background: none;
+}
