@@ -21,6 +21,7 @@
   --color-white: #faf9f9;
   --color-black: #252422;
   --color-darkgrey: #6c757d;
+  --color-lightgrey: rgb(225, 225, 225);
   --font-sanSerif: "Manrope", sans-serif;
   --font-Serif: "Antic Didone", serif;
 }

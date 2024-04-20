@@ -5,6 +5,7 @@ export default function Header() {
   if (session) {
     return (
       <header className="header">
+        <p>Appname</p>
         <button className="login-out-button" onClick={() => signOut()}>
           Sign out
         </button>
@@ -13,6 +14,7 @@ export default function Header() {
   }
   return (
     <header className="header">
+      <p>Appname</p>
       <button className="login-out-button" onClick={() => signIn()}>
         Sign in
       </button>

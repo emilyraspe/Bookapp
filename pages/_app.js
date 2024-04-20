@@ -8,6 +8,8 @@ import "../components/BestSellerBooks/BestSellerBooks.css";
 import "../components/Searchbar/Searchbar.css";
 import "./search/search.css";
 import "../components/Books/Books.css";
+import "../components/BookDetails/BookDetails.css";
+import "../components/AddToBookshelfForm/AddToBookshelfForm.css";
 
 export default function App({ Component, pageProps, session }) {
   return (

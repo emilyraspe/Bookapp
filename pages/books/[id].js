@@ -27,8 +27,8 @@ export default function BookDetailsPage({ books }) {
   if (data) {
     return (
       <>
-        <Link href="/search">
-          <button>Back</button>
+        <Link href="/">
+          <button className="back-button">⭠</button>
         </Link>
         <BookDetails
           name={bookInfo.title}
