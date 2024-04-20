@@ -1,6 +1,7 @@
 import Head from "next/head";
 import useSWR from "swr";
 import BestSellerBooks from "../components/BestSellerBooks/BestSellerBooks";
+import Header from "../components/Header/Header";
 
 async function fetcher(...args) {
   try {

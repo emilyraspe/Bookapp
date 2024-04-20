@@ -1,0 +1,11 @@
+@import url("../../pages/app.css");
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: var(--color-white);
+  width: 100%;
+  border-bottom: 2px solid var(--color-black);
+  padding: 25px;
+}

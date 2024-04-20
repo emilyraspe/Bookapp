@@ -1,33 +1,10 @@
 import Layout from "../components/Layout/Layout";
 import { SessionProvider } from "next-auth/react";
-import Header from "../components/Header/Header";
 import { SWRConfig } from "swr";
 import "../components/Navigation/Navigation.css";
-
-/* const fetcher = async (url) => await fetch(url).then((res) => res.json()); */
+import "../components/Header/Header.css";
 
 export default function App({ Component, pageProps, session }) {
-  /*  const [input, setInput] = useState();
-
-  function handleInputChange(query) {
-    setInput(query);
-  }
-
-  const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
-  const searchQuery = input ? `q=${input}` : "";
-  const googleBooksURL = `https://www.googleapis.com/books/v1/volumes?${searchQuery}&maxResults=15&key=${API_KEY}`;
-
-  const { data, error } = useSWR(googleBooksURL, fetcher);
-
-  if (error) {
-    return <p>Error loading books. Please try again later.</p>;
-  }
-
-  if (!data) {
-    return <p>Search for a book</p>;
-  }
-  const books = data.items; */
-
   return (
     <>
       <SWRConfig
@@ -42,13 +19,8 @@ export default function App({ Component, pageProps, session }) {
         }}
       >
         <SessionProvider session={session}>
-          <Header />
           <Layout>
-            <Component
-              {...pageProps}
-              /*  handleInputChange={handleInputChange}
-              books={books} */
-            />
+            <Component {...pageProps} />
           </Layout>
         </SessionProvider>
       </SWRConfig>
