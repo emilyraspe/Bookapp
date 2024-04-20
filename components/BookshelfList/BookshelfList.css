@@ -1,0 +1,10 @@
+.bookshelflist-item {
+  list-style: none;
+  padding: 20px 0px;
+  border-bottom: 1px solid var(--color-black);
+  font-size: 18px;
+}
+
+.bookshelflist-link:hover {
+  color: var(--color-lightgrey);
+}

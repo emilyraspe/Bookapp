@@ -6,8 +6,8 @@ export default function Archievment({ booksReadNumber }) {
   if (booksReadNumber > 50) {
   }
   return (
-    <div>
-      <h4>Your archievments:</h4>
+    <div className="archievments-container">
+      <h2>Your archievments</h2>
       {booksReadNumber > 50 ? <Archievment10 /> : "No archievments yet"}
     </div>
   );

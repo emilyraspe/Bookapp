@@ -36,7 +36,6 @@ export default function BookshelfForm() {
       event.target.reset();
     }
   }
-  console.log("DAAAAATAAAAAAA", data);
 
   return (
     <>
@@ -49,18 +48,20 @@ export default function BookshelfForm() {
           <p></p>
         )}
       </div>
-      <p>Create a new Bookshelf</p>
-      <form onSubmit={handleSubmit} className="bookshelfForm-form">
-        <div className="bookshelfForm-container">
-          <input
-            type="text"
-            name="name"
-            className="bookshelfForm-input"
-          ></input>{" "}
-          <button type="submit">Create</button>
-        </div>
-        <label>Name of your new bookshelf</label>
-      </form>
+      <div className="bookshelfForm-container">
+        <h2>Create a new Bookshelf</h2>
+        <form onSubmit={handleSubmit} className="bookshelfForm-form">
+          <div className="bookshelfinput-container">
+            <input
+              type="text"
+              name="name"
+              className="bookshelfForm-input"
+            ></input>{" "}
+            <button type="submit">Create</button>
+          </div>
+          <label>Name of your new bookshelf</label>
+        </form>
+      </div>
     </>
   );
 }

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Antic+Didone&family=Gilda+Display&display=swap");
+
 @font-face {
   font-family: "LeMurmure-Regular";
   src: local("LeMurmure-Regular"),
@@ -63,7 +64,7 @@ h1 {
 h2,
 h3,
 h4 {
-  font-family: var(--font-Serif);
+  font-family: var(--font-sanSerif);
   font-weight: 200;
 }
 
@@ -73,7 +74,7 @@ body {
 }
 
 main {
-  padding: 50px 15px;
+  padding: 70px 15px;
   padding-top: 20px;
 }
 

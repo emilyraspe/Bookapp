@@ -11,10 +11,17 @@
   width: 200px;
 }
 
-.bookshelfForm-container {
+.bookshelfinput-container {
   display: flex;
   gap: 15px;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--color-black);
+}
+
+.bookshelfForm-container {
+  margin: 30px 0px;
+  background-color: var(--color-lightgrey);
+  padding: 10px;
+  border-radius: 2px;
 }
