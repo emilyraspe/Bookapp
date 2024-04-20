@@ -4,6 +4,7 @@ import { SWRConfig } from "swr";
 import "../components/Navigation/Navigation.css";
 import "../components/Header/Header.css";
 import "./index.css";
+import "../components/BestSellerBooks/BestSellerBooks.css";
 
 export default function App({ Component, pageProps, session }) {
   return (
