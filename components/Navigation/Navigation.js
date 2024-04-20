@@ -1,20 +1,22 @@
 import Link from "next/link";
 
 export default function Navigation() {
+  const path = "search";
+
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <Link href="/">Homepage</Link>
-          </li>
-          <li>
-            <Link href="/search">Search</Link>
-          </li>
-          <li>
-            <Link href="/profile">Profile</Link>
-          </li>
-        </ul>
+      <nav className="nav">
+        <Link href="/" className="nav--element nav--button">
+          Homepage
+        </Link>
+
+        <Link href="/search" className="nav--element nav--button">
+          Search
+        </Link>
+
+        <Link href="/profile" className="nav--element nav--button">
+          Profile
+        </Link>
       </nav>
     </>
   );
