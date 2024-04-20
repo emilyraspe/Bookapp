@@ -2,22 +2,19 @@ import Link from "next/link";
 
 export default function Navigation() {
   const path = "search";
-  //useState for url
-  //useEffect to get path
-  //
+
   return (
     <>
       <nav className="nav">
-        <Link href="/" className="nav--element">
+        <Link href="/" className="nav--element nav--button">
           Homepage
         </Link>
-        <Link
-          href="/search"
-          className={`nav--element ${path == "search" ? "underlined" : ""}`}
-        >
+
+        <Link href="/search" className="nav--element nav--button">
           Search
         </Link>
-        <Link href="/profile" className="nav--element">
+
+        <Link href="/profile" className="nav--element nav--button">
           Profile
         </Link>
       </nav>
