@@ -3,6 +3,7 @@ import { SessionProvider } from "next-auth/react";
 import { SWRConfig } from "swr";
 import "../components/Navigation/Navigation.css";
 import "../components/Header/Header.css";
+import "./index.css";
 
 export default function App({ Component, pageProps, session }) {
   return (
