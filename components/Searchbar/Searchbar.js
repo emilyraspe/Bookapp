@@ -8,10 +8,12 @@ export default function Searchbar({ handleInputChange }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="search">search your next favorite book</label>
-        <input type="text" name="search"></input>
-        <button type="submit">Search</button>
+      <form onSubmit={handleSubmit} className="search-form">
+        <div className="search-container">
+          <input type="text" name="search" className="search-input"></input>
+          <button type="submit">Submit</button>
+        </div>
+        <label htmlFor="search">Enter booktitle or author</label>
       </form>
     </>
   );

@@ -30,7 +30,7 @@ export default function Search() {
   const books = data.items;
   return (
     <>
-      <h1>search</h1>
+      <h1>Search</h1>
       <Searchbar handleInputChange={handleInputChange} />
       <Books books={books} />
     </>
