@@ -92,19 +92,35 @@ export default function BookDetails({
   );
 
   return (
-    <div>
-      <h1>{name}</h1>
-      <img src={image} height={350} alt={name} />
-      <h4>Author: {authors}</h4>
-      <p>Published: {published}</p>
-      <p>Publisher: {publisher}</p>
-      <p>{description}</p>
+    <div className="details-container">
+      <h1 className="details-title">{name}</h1>
+      <img src={image} height={250} alt={name} className="details-img" />
+
+      <div className="details-info">
+        <p>
+          <strong>Author:</strong> {authors}
+        </p>
+        <p>
+          <strong>Published:</strong> {published}
+        </p>
+        <p>
+          <strong>Publisher:</strong> {publisher}
+        </p>
+      </div>
       {categories.map((category, index) => (
-        <div key={index}>{category}</div>
+        <span key={index} className="details-genre">
+          {category}
+        </span>
       ))}
+      <p className="details-description">{description}</p>
 
       {session ? (
-        <>
+        <div className="details-read">
+          <p>
+            {isBookFound()
+              ? `${name} marked as read on ${bookForDate?.date}`
+              : ""}
+          </p>
           {isBookFound() ? (
             <RemoveFromRead bookdata={bookdata} />
           ) : (
@@ -113,11 +129,7 @@ export default function BookDetails({
               Mark as read
             </button>
           )}
-
-          <p>
-            {isBookFound() ? `Was marked as read on ${bookForDate?.date}` : ""}
-          </p>
-        </>
+        </div>
       ) : (
         ""
       )}

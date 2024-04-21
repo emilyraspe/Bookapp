@@ -1,0 +1,18 @@
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  gap: 45px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background-color: var(--color-blacks);
+}
+
+.profile-name {
+  font-size: 44px;
+}

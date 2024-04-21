@@ -44,9 +44,13 @@ export default function AddToBookshelfForm({ bookdata }) {
       {!session ? (
         <p>Please Login for more</p>
       ) : (
-        <form onSubmit={handleAddToBookshelf}>
+        <form onSubmit={handleAddToBookshelf} className="details-form">
           <label>Add book to</label>
-          <select value={selectedShelf} onChange={handleSelectChange}>
+          <select
+            value={selectedShelf}
+            onChange={handleSelectChange}
+            className="details-select"
+          >
             <option value="" disabled>
               Select a shelf
             </option>
@@ -56,7 +60,9 @@ export default function AddToBookshelfForm({ bookdata }) {
                 <option key={_id}>{shelf.name}</option>
               ))}
           </select>
-          <button type="submit">Add to Bookshelf</button>
+          <button type="submit" className="details-form-button">
+            +
+          </button>
         </form>
       )}
       {isSuccess ? <p>Book added successfully!</p> : null}

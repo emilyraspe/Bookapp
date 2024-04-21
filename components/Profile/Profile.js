@@ -20,13 +20,19 @@ export default function Profile({ session }) {
 
   return (
     <>
-      <img src={session.user.image} />
-      <h1>{session.user.name}</h1>
-      <Link href="/markedasread">
-        You read {booksReadNumber} Books. See all
-      </Link>
-      <Archievment booksReadNumber={booksReadNumber} />
+      <div className="profile-container">
+        <div className="profile-img">
+          <img src={session.user.image} className="profile-img" />
+        </div>
+        <div className="profile-overview">
+          <h1 className="profile-name">{session.user.name}</h1>
+          <Link href="/markedasread">
+            You read {booksReadNumber} Books. See all ⭢
+          </Link>
+        </div>
+      </div>
       <BookshelfForm />
+      <Archievment booksReadNumber={booksReadNumber} />
     </>
   );
 }

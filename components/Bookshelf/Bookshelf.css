@@ -1,0 +1,5 @@
+.bookshelf-header {
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--color-black);
+  margin-bottom: 40px;
+}

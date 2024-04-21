@@ -4,14 +4,20 @@ export default function Header() {
   const { data: session } = useSession();
   if (session) {
     return (
-      <>
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
+      <header className="header">
+        <p>Appname</p>
+        <button className="login-out-button" onClick={() => signOut()}>
+          Sign out
+        </button>
+      </header>
     );
   }
   return (
-    <>
-      <button onClick={() => signIn()}>Sign in</button>
-    </>
+    <header className="header">
+      <p>Appname</p>
+      <button className="login-out-button" onClick={() => signIn()}>
+        Sign in
+      </button>
+    </header>
   );
 }
