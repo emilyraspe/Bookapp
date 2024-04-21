@@ -27,17 +27,21 @@ export default function Recommendations() {
   );
 
   const publisher = favouriteBookData?.items?.[0]?.volumeInfo?.publisher;
+  const author = favouriteBookData?.items?.[0]?.volumeInfo?.authors[0];
+  const genre = favouriteBookData?.items?.[0]?.volumeInfo?.categories;
 
   const { data: recommendationsData, error: recommendationsError } = useSWR(
     `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(
-      publisher
+      author
     )}&maxResults=6&key=${API_KEY}`,
     fetcher
   );
 
-  console.log("Recommended Books:", recommendationsData);
+  console.log("Recommended Books:", recommendationsData?.items);
   console.log("bookData:", favouriteBookData);
-  console.log("publisher:", publisher);
+  console.log("author:", author);
+
+  const recommendations = recommendationsData?.items;
 
   return (
     <>
@@ -49,7 +53,7 @@ export default function Recommendations() {
         <input type="text" name="search" className="search-input"></input>
         <button type="submit">Search</button>
       </form>
-      {/*  <Books books={recommendedBooks} />  */}
+      <Books books={recommendations} />
     </>
   );
 }
