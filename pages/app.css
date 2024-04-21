@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Antic+Didone&family=Gilda+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap");
 
 @font-face {
   font-family: "LeMurmure-Regular";
   src: local("LeMurmure-Regular"),
     url("../src/fonts/LeMurmure-Regular.woff") format("woff");
 }
+
 .antic-didone-regular {
-  font-family: "Antic Didone", serif;
+  font-family: "LeMurmure-Regular";
   font-weight: 400;
   font-style: normal;
 }
@@ -23,8 +24,9 @@
   --color-black: #252422;
   --color-darkgrey: #6c757d;
   --color-lightgrey: rgb(225, 225, 225);
+  --color-blue: #03256c;
   --font-sanSerif: "Manrope", sans-serif;
-  --font-Serif: "Antic Didone", serif;
+  --font-Serif: "Noto Serif Display", serif;
 }
 
 a {
@@ -56,9 +58,11 @@ button:hover {
 }
 
 h1 {
-  font-family: var(--font-Serif);
-  font-weight: 200;
+  font-family: var(--font-sanSerif);
+  font-weight: 800;
+
   font-size: 56px;
+  line-height: 120%;
 }
 
 h2,
