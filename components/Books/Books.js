@@ -9,7 +9,7 @@ export default function Books({ books }) {
 
   return (
     <>
-      {books.map((book) => (
+      {books?.map((book) => (
         <div key={book.id} className="book-container">
           <Link
             href={`/books/${

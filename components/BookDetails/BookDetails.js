@@ -107,7 +107,7 @@ export default function BookDetails({
           <strong>Publisher:</strong> {publisher}
         </p>
       </div>
-      {categories.map((category, index) => (
+      {categories?.map((category, index) => (
         <span key={index} className="details-genre">
           {category}
         </span>
