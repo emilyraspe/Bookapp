@@ -3,6 +3,8 @@ import Books from "../../components/Books/Books";
 import SearchFetch from "../../components/SearchFetch/SearchFetch";
 import { useState } from "react";
 import useSWR from "swr";
+import Recommendations from "../../components/Recommendations/Recommendations";
+import Link from "next/link";
 
 const fetcher = async (url) => await fetch(url).then((res) => res.json());
 
@@ -35,6 +37,9 @@ export default function Search() {
       <div className="books-container">
         <Books books={books} />
       </div>
+      <p>
+        Need Bookinspiration? <Link href="/recommendations">Click here</Link>
+      </p>
     </>
   );
 }
