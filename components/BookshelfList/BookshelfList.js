@@ -1,7 +1,7 @@
 export default function BookshelfList({ data, session }) {
   return (
     <>
-      <h2>My Bookshelves</h2>
+      <h2>Bookshelves</h2>
       {data
         .filter((shelf) => shelf.userId === session.user.userId)
         .map((shelf, id) => (

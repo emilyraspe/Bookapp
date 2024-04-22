@@ -26,12 +26,12 @@ export default function Profile({ session }) {
         </div>
         <div className="profile-overview">
           <p className="profile-name">{session.user.name}</p>
-          <Link href="/markedasread">
-            <p className="tagline">You read {booksReadNumber} Books 𐃘</p>
-          </Link>
+          <p className="tagline small-text">{session.user.email}</p>
         </div>
       </div>
-      <Archievment booksReadNumber={booksReadNumber} />
+      <Link href="/markedasread">
+        <Archievment booksReadNumber={booksReadNumber} />
+      </Link>
       <BookshelfForm />
     </>
   );

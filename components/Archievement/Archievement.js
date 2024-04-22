@@ -8,7 +8,9 @@ export default function Archievment({ booksReadNumber }) {
   }
   return (
     <>
-      <h2>Your archievments</h2>
+      <p className="tagline small-text">
+        Archievments for reading {booksReadNumber} books
+      </p>
       <div className="archievments-container">
         {booksReadNumber >= 20 ? <Archievment10 /> : "No archievments yet"}
         {booksReadNumber >= 50 ? <Archievment50 /> : ""}
