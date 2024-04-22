@@ -1,32 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
-@font-face {
-  font-family: "LeMurmure-Regular";
-  src: local("LeMurmure-Regular"),
-    url("../src/fonts/LeMurmure-Regular.woff") format("woff");
-}
+/* @font-face {
+  font-family: "BrolimoRegular";
+  src: local("BrolimoRegular"),
+    url("../src/fonts/BrolimoRegular.ttf") format("ttf");
+} */
 
-.antic-didone-regular {
-  font-family: "LeMurmure-Regular";
-  font-weight: 400;
-  font-style: normal;
+:root {
+  --color-white: #faf9f9;
+  --color-black: #252422;
+  --color-darkgrey: #6b6b6b;
+  --color-lightgrey: rgb(238, 238, 238);
+  --color-blue: #1212ec;
+  --font-sanSerif: "DM Sans", sans-serif;
 }
 
 * {
   margin: 0px;
   padding: 0px;
-  font-family: "Manrope", sans-serif;
-}
-
-:root {
-  --color-white: #faf9f9;
-  --color-black: #252422;
-  --color-darkgrey: #6c757d;
-  --color-lightgrey: rgb(225, 225, 225);
-  --color-blue: #03256c;
-  --font-sanSerif: "Manrope", sans-serif;
-  --font-Serif: "Noto Serif Display", serif;
+  font-family: var(--font-sanSerif);
 }
 
 a {
@@ -35,7 +27,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-darkgrey);
+  color: var(--color-blue);
 }
 
 .underlined {
@@ -43,7 +35,7 @@ a:hover {
 }
 
 button {
-  background-color: var(--color-white);
+  background: none;
   border: 1px solid var(--color-black);
   padding: 3px 10px;
   border-radius: 25px;
@@ -53,16 +45,16 @@ button {
 }
 
 button:hover {
-  border: 1px solid var(--color-darkgrey);
-  color: var(--color-darkgrey);
+  border: 1px solid var(--color-blue);
+  color: var(--color-blue);
 }
 
 h1 {
   font-family: var(--font-sanSerif);
-  font-weight: 800;
-
-  font-size: 56px;
+  font-weight: 400;
+  font-size: 44px;
   line-height: 120%;
+  color: var(--color-black);
 }
 
 h2,
@@ -79,7 +71,7 @@ body {
 
 main {
   padding: 70px 15px;
-  padding-top: 20px;
+  padding-top: 90px;
 }
 
 .bookimage-small {
@@ -95,4 +87,8 @@ main {
 .author {
   font-weight: 200;
   font-size: 14px;
+}
+
+.tagline {
+  color: var(--color-darkgrey);
 }

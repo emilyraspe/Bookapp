@@ -21,7 +21,7 @@ export default function BookDetails({
   } = useSWR(`/api/readBooks/`);
 
   const now = new Date();
-  const dateTime = now.toLocaleString();
+  const dateTime = now.toLocaleDateString();
 
   const bookWithDate = {
     ...bookdata.items[0],
@@ -97,15 +97,9 @@ export default function BookDetails({
       <img src={image} height={250} alt={name} className="details-img" />
 
       <div className="details-info">
-        <p>
-          <strong>Author:</strong> {authors}
-        </p>
-        <p>
-          <strong>Published:</strong> {published}
-        </p>
-        <p>
-          <strong>Publisher:</strong> {publisher}
-        </p>
+        <p>Author:{authors}</p>
+        <p>Published:{published}</p>
+        <p>Publisher:{publisher}</p>
       </div>
       {categories?.map((category, index) => (
         <span key={index} className="details-genre">
@@ -117,9 +111,14 @@ export default function BookDetails({
       {session ? (
         <div className="details-read">
           <p>
-            {isBookFound()
-              ? `${name} marked as read on ${bookForDate?.date}`
-              : ""}
+            {isBookFound() ? (
+              <p>
+                {" "}
+                <strong>{name}</strong> was marked read on {bookForDate?.date}
+              </p>
+            ) : (
+              ""
+            )}
           </p>
           {isBookFound() ? (
             <RemoveFromRead bookdata={bookdata} />

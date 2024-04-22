@@ -23,8 +23,10 @@ export default function Home() {
   const genres = ["hardcover-nonfiction", "hardcover-fiction"];
   const genre = "hardcover-nonfiction";
 
-  const bestsellerAPI = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-nonfiction.json?api-key=${API_KEY_bestseller}`;
-  const { data, error } = useSWR(bestsellerAPI, fetcher);
+  const bestsellerAPI1 = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-nonfiction.json?api-key=${API_KEY_bestseller}`;
+  const bestsellerAPI2 = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${API_KEY_bestseller}`;
+
+  const { data, error } = useSWR(bestsellerAPI1, fetcher);
 
   if (!data && !error) {
     // loading
@@ -42,11 +44,14 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Bookapp</title>
+        <title>Pageturner</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <h1>Discover your next favourite book</h1>
+      <h1>Pageturner</h1>
+      <h2>
+        Discover your next favourite Book <a href="#bestseller">ↆ</a>
+      </h2>
       <div className="content">
         <BestSellerBooks bestSellerBooks={bestSellerBooks} />
       </div>

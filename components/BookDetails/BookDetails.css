@@ -1,6 +1,8 @@
 .details-container {
+  margin: -20px;
   margin-bottom: 50px;
-  padding-top: 25px;
+  padding: 25px 20px 0px 20px;
+  background-color: var(--color-lightgrey);
 }
 
 .details-img {
@@ -41,4 +43,6 @@
   width: 35px;
   height: 35px;
   text-align: center;
+  border: none;
+  margin-bottom: 20px;
 }
