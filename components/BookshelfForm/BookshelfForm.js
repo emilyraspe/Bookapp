@@ -41,7 +41,9 @@ export default function BookshelfForm() {
     <>
       <div>
         <h2>Bookshelves</h2>
-
+        <a href="/markedasread" className="bookshelflist-link">
+          <p className="bookshelflist-item">Read books</p>
+        </a>
         {session?.user.userId && data ? (
           <BookshelfList data={data} session={session} />
         ) : (

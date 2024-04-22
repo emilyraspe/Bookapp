@@ -6,7 +6,7 @@ export default function Navigation() {
   return (
     <>
       <nav className="nav">
-        <Link href="/" className="nav--element nav--button">
+        <Link href="/" className="nav--element nav--button nav--element-left">
           Homepage
         </Link>
 

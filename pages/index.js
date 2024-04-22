@@ -44,11 +44,11 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Pageturner</title>
+        <title>PageTurner</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <h1>Pageturner</h1>
+      <h1 className="pageturner">PageTurner</h1>
       <h2>
         Discover your next favourite Book <a href="#bestseller">ↆ</a>
       </h2>

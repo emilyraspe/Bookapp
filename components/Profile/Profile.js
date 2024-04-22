@@ -25,9 +25,9 @@ export default function Profile({ session }) {
           <img src={session.user.image} className="profile-img" />
         </div>
         <div className="profile-overview">
-          <h1 className="profile-name">{session.user.name}</h1>
+          <p className="profile-name">{session.user.name}</p>
           <Link href="/markedasread">
-            You read {booksReadNumber} Books. See all ⭢
+            <p className="tagline">You read {booksReadNumber} Books </p>
           </Link>
         </div>
       </div>
