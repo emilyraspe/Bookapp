@@ -1,4 +1,9 @@
-.details-container {
+.details-more-containter {
+  display: flex;
+  gap: 40px;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  margin-top: 25px;
 }
 
 .details-info {
@@ -47,5 +52,9 @@
   border-radius: 3px;
   padding: 10px;
   text-align: center;
+  margin: 30px 0px;
+}
+
+.moreFromAuthor {
   margin: 30px 0px;
 }

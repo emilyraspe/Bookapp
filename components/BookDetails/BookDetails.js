@@ -98,7 +98,7 @@ export default function BookDetails({
 
   //author fetch
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
-  const authorURL = `https://www.googleapis.com/books/v1/volumes?q=inauthor:"mariana-leky"&maxResults=3&key=${API_KEY}`;
+  const authorURL = `https://www.googleapis.com/books/v1/volumes?q=inauthor:"${authors}"&maxResults=4&key=${API_KEY}`;
   const { data: authorData, error } = useSWR(authorURL, fetcher);
   console.log("authorData", authorData);
 
@@ -154,8 +154,12 @@ export default function BookDetails({
       )}
 
       <AddToBookshelfForm bookdata={bookdata} />
-      <h3>More from {authors}</h3>
-      <Books />
+      <div className="moreFromAuthor">
+        <h3>Books from {authors}</h3>
+        <div className="details-more-containter">
+          <Books books={authorData?.items} />
+        </div>
+      </div>
     </div>
   );
 }
