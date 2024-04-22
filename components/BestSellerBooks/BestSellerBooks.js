@@ -18,10 +18,10 @@ export default function BestSellerBooks({ bestSellerBooks }) {
       <div className="bestseller-container">
         {bestSellerBooks.map((book) => (
           <div key={book.primary_isbn13} className="bestseller-group">
+            <p className="bestseller-rank">{book.rank}</p>{" "}
             <Link href={`/books/${book.primary_isbn13}`}>
               <img src={book.book_image} className="bookimage-small"></img>
             </Link>
-            <p className="bestseller-rank">{book.rank}</p>
             <p className="title">{book.title}</p>
             <p className="author">{book.author}</p>
           </div>

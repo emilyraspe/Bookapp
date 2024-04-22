@@ -10,6 +10,7 @@
   --color-white: #faf9f9;
   --color-black: #252422;
   --color-darkgrey: #6b6b6b;
+  --color-grey: #c0c0c0;
   --color-lightgrey: rgb(238, 238, 238);
   --color-blue: #1212ec;
   --font-sanSerif: "DM Sans", sans-serif;
@@ -91,4 +92,21 @@ main {
 
 .tagline {
   color: var(--color-darkgrey);
+}
+
+/*Scrollbar
+/* width */
+::-webkit-scrollbar {
+  height: 2px;
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-grey);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-black);
 }
