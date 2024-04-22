@@ -2,6 +2,9 @@ import AddToBookshelfForm from "../AddToBookshelfForm/AddToBookshelfForm";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
 import RemoveFromRead from "../RemoveFromRead/RemoveFromRead";
+import Books from "../Books/Books";
+
+const fetcher = async (url) => await fetch(url).then((res) => res.json());
 
 export default function BookDetails({
   name,
@@ -12,6 +15,8 @@ export default function BookDetails({
   description,
   publisher,
   bookdata,
+  textSnippet,
+  pageCount,
 }) {
   const { data: session } = useSession();
   const {
@@ -91,23 +96,37 @@ export default function BookDetails({
     (book) => book.id === bookdata.items[0].id
   );
 
+  //author fetch
+  const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+  const authorURL = `https://www.googleapis.com/books/v1/volumes?q=inauthor:"mariana-leky"&maxResults=3&key=${API_KEY}`;
+  const { data: authorData, error } = useSWR(authorURL, fetcher);
+  console.log("authorData", authorData);
+
   return (
     <div className="details-container">
       <h1 className="details-title">{name}</h1>
+
       <div className="details-info">
         <img src={image} height={200} alt={name} className="details-img" />
 
         <div>
-          <p>Author: {authors}</p>
-          <p>Publisher: {publisher}</p>
+          <p className="tagline">Author: {authors}</p>
+          <p className="tagline">Publisher: {publisher}</p>
+          <p className="tagline">Pages: {pageCount}</p>
+          {categories?.map((category, index) => (
+            <span key={index} className="details-genre">
+              {category}
+            </span>
+          ))}
         </div>
       </div>
-      {categories?.map((category, index) => (
-        <span key={index} className="details-genre">
-          {category}
-        </span>
-      ))}
+
+      <h3>Description</h3>
       <p className="details-description">{description}</p>
+
+      {/* <div className="quote-container">
+        <p className="quote">"{textSnippet}"</p>
+      </div> */}
 
       {session ? (
         <div className="details-read">
@@ -135,6 +154,8 @@ export default function BookDetails({
       )}
 
       <AddToBookshelfForm bookdata={bookdata} />
+      <h3>More from {authors}</h3>
+      <Books />
     </div>
   );
 }

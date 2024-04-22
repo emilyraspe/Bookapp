@@ -1,17 +1,18 @@
 .details-container {
-  margin: -20px;
-  margin-bottom: 50px;
-  padding: 25px 20px 0px 20px;
-  background-color: var(--color-lightgrey);
 }
 
 .details-info {
   display: flex;
+  align-items: flex-end;
   gap: 25px;
+  margin: 30px 0px;
+  border-top: 1px solid var(--color-darkgrey);
+  padding-top: 30px;
 }
 
 .details-title {
   font-size: 40px;
+  text-align: center;
 }
 
 .details-genre {
@@ -39,4 +40,12 @@
   text-align: center;
   border: none;
   margin-bottom: 20px;
+}
+
+.quote-container {
+  border: 1px solid var(--color-darkgrey);
+  border-radius: 3px;
+  padding: 10px;
+  text-align: center;
+  margin: 30px 0px;
 }

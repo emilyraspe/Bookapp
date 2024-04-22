@@ -24,9 +24,9 @@ export default function Home() {
   const genre = "hardcover-nonfiction";
 
   const bestsellerAPI1 = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-nonfiction.json?api-key=${API_KEY_bestseller}`;
-  const bestsellerAPI2 = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${API_KEY_bestseller}`;
 
   const { data, error } = useSWR(bestsellerAPI1, fetcher);
+  console.log(data);
 
   if (!data && !error) {
     // loading

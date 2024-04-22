@@ -23,13 +23,11 @@ export default function BookDetailsPage({ books }) {
     // If 'data.items' doesn't exist or is empty
     bookInfo = data.volumeInfo;
   }
+  console.log("HIIIIII", data);
 
   if (data) {
     return (
       <>
-        <Link href="/">
-          <button className="back-button">⭠</button>
-        </Link>
         <BookDetails
           name={bookInfo.title}
           authors={bookInfo.authors}
@@ -39,6 +37,8 @@ export default function BookDetailsPage({ books }) {
           description={bookInfo.description}
           publisher={bookInfo.publisher}
           bookdata={data}
+          textSnippet={data?.items[0].searchInfo.textSnippet}
+          pageCount={bookInfo.pageCount}
         />
       </>
     );
