@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import useSWR from "swr";
 import RemoveFromRead from "../RemoveFromRead/RemoveFromRead";
 import Books from "../Books/Books";
+import Link from "next/link";
 
 const fetcher = async (url) => await fetch(url).then((res) => res.json());
 
@@ -103,63 +104,65 @@ export default function BookDetails({
   console.log("authorData", authorData);
 
   return (
-    <div className="details-container">
-      <h1 className="details-title">{name}</h1>
+    <>
+      <Link href="/">Back</Link>
+      <div className="details-container">
+        <h1 className="details-title">{name}</h1>
 
-      <div className="details-info">
-        <img src={image} height={200} alt={name} className="details-img" />
+        <div className="details-info">
+          <img src={image} height={200} alt={name} className="details-img" />
 
-        <div>
-          <p className="tagline">Author: {authors}</p>
-          <p className="tagline">Publisher: {publisher}</p>
-          <p className="tagline">Pages: {pageCount}</p>
-          {categories?.map((category, index) => (
-            <span key={index} className="details-genre">
-              {category}
-            </span>
-          ))}
+          <div>
+            <p className="tagline">Author: {authors}</p>
+            <p className="tagline">Publisher: {publisher}</p>
+            {categories?.map((category, index) => (
+              <span key={index} className="details-genre">
+                {category}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <h3>Description</h3>
-      <p className="details-description">{description}</p>
+        <h3>Description</h3>
+        <p className="details-description">{description}</p>
 
-      {/* <div className="quote-container">
+        {/* <div className="quote-container">
         <p className="quote">"{textSnippet}"</p>
       </div> */}
 
-      {session ? (
-        <div className="details-read">
-          <p>
+        {session ? (
+          <div className="details-read">
+            <p>
+              {isBookFound() ? (
+                <p>
+                  {" "}
+                  <strong>{name}</strong> was marked read on {bookForDate?.date}
+                </p>
+              ) : (
+                ""
+              )}
+            </p>
             {isBookFound() ? (
-              <p>
-                {" "}
-                <strong>{name}</strong> was marked read on {bookForDate?.date}
-              </p>
+              <RemoveFromRead bookdata={bookdata} />
             ) : (
-              ""
+              <button onClick={addToReadBooks} /* disabled={isBookFound()} */>
+                {" "}
+                Mark as read
+              </button>
             )}
-          </p>
-          {isBookFound() ? (
-            <RemoveFromRead bookdata={bookdata} />
-          ) : (
-            <button onClick={addToReadBooks} /* disabled={isBookFound()} */>
-              {" "}
-              Mark as read
-            </button>
-          )}
-        </div>
-      ) : (
-        ""
-      )}
+          </div>
+        ) : (
+          ""
+        )}
 
-      <AddToBookshelfForm bookdata={bookdata} />
-      <div className="moreFromAuthor">
-        <h3>Books from {authors}</h3>
-        <div className="details-more-containter">
-          <Books books={authorData?.items} />
+        <AddToBookshelfForm bookdata={bookdata} />
+        <div className="moreFromAuthor">
+          <h3>Books from {authors}</h3>
+          <div className="details-more-containter">
+            <Books books={authorData?.items} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
