@@ -1,6 +1,6 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import Profile from "../../components/Profile/Profile";
-import Archievment from "../../components/Achievement/Achievement";
+import Archievment from "../../components/Archievement/Archievement";
 
 export default function ProfilePage() {
   const { data: session } = useSession();

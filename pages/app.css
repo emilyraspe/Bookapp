@@ -36,18 +36,18 @@ a:hover {
 }
 
 button {
-  background: none;
-  border: 1px solid var(--color-black);
+  background: var(--color-black);
   padding: 3px 10px;
   border-radius: 25px;
   font-weight: 400;
   font-size: 16px;
   height: 30px;
+  color: var(--color-white);
 }
 
 button:hover {
-  border: 1px solid var(--color-blue);
-  color: var(--color-blue);
+  background: none;
+  color: var(--color-black);
 }
 
 h1 {
@@ -71,7 +71,11 @@ p {
 
 body {
   background-color: var(--color-white);
-  width: 100%;
+}
+
+.small-text {
+  font-size: 14px;
+  color: var(--color-grey);
 }
 
 main {

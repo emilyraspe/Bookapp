@@ -7,7 +7,7 @@ export default function Navigation() {
     <>
       <nav className="nav">
         <Link href="/" className="nav--element nav--button nav--element-left">
-          Homepage
+          Start
         </Link>
 
         <Link href="/search" className="nav--element nav--button">
