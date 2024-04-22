@@ -94,12 +94,13 @@ export default function BookDetails({
   return (
     <div className="details-container">
       <h1 className="details-title">{name}</h1>
-      <img src={image} height={250} alt={name} className="details-img" />
-
       <div className="details-info">
-        <p>Author:{authors}</p>
-        <p>Published:{published}</p>
-        <p>Publisher:{publisher}</p>
+        <img src={image} height={200} alt={name} className="details-img" />
+
+        <div>
+          <p>Author: {authors}</p>
+          <p>Publisher: {publisher}</p>
+        </div>
       </div>
       {categories?.map((category, index) => (
         <span key={index} className="details-genre">
