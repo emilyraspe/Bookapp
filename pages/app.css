@@ -107,6 +107,11 @@ main {
   color: var(--color-darkgrey);
 }
 
+.link-underline {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
 /*Scrollbar
 /* width */
 ::-webkit-scrollbar {
