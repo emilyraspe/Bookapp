@@ -11,10 +11,14 @@ export default function BestSellerBooks({ bestSellerBooks }) {
 
   return (
     <>
+      <p className="tagline" id="bestseller">
+        Bestseller in the category{" "}
+      </p>
+      <p>Non-Fiction</p>
       <div className="bestseller-container">
         {bestSellerBooks.map((book) => (
           <div key={book.primary_isbn13} className="bestseller-group">
-            <p className="bestseller-rank">{book.rank}</p>
+            <p className="bestseller-rank">{book.rank}</p>{" "}
             <Link href={`/books/${book.primary_isbn13}`}>
               <img src={book.book_image} className="bookimage-small"></img>
             </Link>

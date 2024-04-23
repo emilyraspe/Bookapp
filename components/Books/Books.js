@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Books({ books }) {
   if (!books || books.length === 0) {
-    return <p>No books found. Please serach for book</p>;
+    return;
   }
   console.log(books);
 

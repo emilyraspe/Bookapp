@@ -46,16 +46,26 @@ export default function Bookshelf({ selectedBookshelf }) {
     <>
       <div className="bookshelf-header">
         <h1>{selectedBookshelf?.name}</h1>
-        <p>Created: {selectedBookshelf?.created}</p>
-        <Link href="/profile">
-          <button>Back</button>
-        </Link>
-        <button onClick={deleteBookshelf}>Delete Bookshelf</button>
+        <p className="tagline small-text">
+          Created: {selectedBookshelf?.created}
+        </p>
+        <div className="bookshelf-button-container">
+          <Link href="/profile">
+            <button>Back</button>
+          </Link>
+          <button onClick={deleteBookshelf}>Delete Bookshelf</button>
+        </div>
       </div>
       <div className="books-container">
         {books?.map((book) =>
           book.items.map((obj) => (
             <div className="book-container">
+              <button
+                onClick={() => handleDelete(obj.id)}
+                className="button-bookdelete"
+              >
+                Remove from shelf
+              </button>
               <Link
                 href={`/books/${obj.volumeInfo.industryIdentifiers[0].identifier}`}
               >
@@ -64,9 +74,10 @@ export default function Bookshelf({ selectedBookshelf }) {
                   className="bookimage-small"
                 ></img>
               </Link>
-              <p key={obj.id}>{obj.volumeInfo.title}</p>
-              <p>{obj.volumeInfo.authors}</p>
-              <button onClick={() => handleDelete(obj.id)}>Delete</button>
+              <p key={obj.id} className="title">
+                {obj.volumeInfo.title}
+              </p>
+              <p className="author">{obj.volumeInfo.authors}</p>
             </div>
           ))
         )}

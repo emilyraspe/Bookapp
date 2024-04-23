@@ -1,21 +1,23 @@
-.details-container {
-  margin-bottom: 50px;
-  padding-top: 25px;
-}
-
-.details-img {
-  display: block;
-  margin: 20px auto;
+.details-more-containter {
+  display: flex;
+  gap: 40px;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  margin-top: 25px;
 }
 
 .details-info {
-  margin: 10px 0;
-  padding-left: 20px;
-  border-left: 1px solid var(--color-black);
+  display: flex;
+  align-items: flex-end;
+  gap: 25px;
+  margin: 30px 0px;
+  border-top: 1px solid var(--color-darkgrey);
+  padding-top: 30px;
 }
 
 .details-title {
   font-size: 40px;
+  text-align: center;
 }
 
 .details-genre {
@@ -41,4 +43,18 @@
   width: 35px;
   height: 35px;
   text-align: center;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.quote-container {
+  border: 1px solid var(--color-darkgrey);
+  border-radius: 3px;
+  padding: 10px;
+  text-align: center;
+  margin: 30px 0px;
+}
+
+.moreFromAuthor {
+  margin: 30px 0px;
 }

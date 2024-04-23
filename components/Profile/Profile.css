@@ -1,18 +1,18 @@
 .profile-container {
   display: flex;
   flex-direction: row;
-  gap: 45px;
+  gap: 25px;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .profile-img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50px;
   background-color: var(--color-blacks);
 }
 
 .profile-name {
-  font-size: 44px;
+  font-size: 28px;
 }

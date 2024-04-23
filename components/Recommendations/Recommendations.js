@@ -37,21 +37,22 @@ export default function Recommendations() {
     fetcher
   );
 
-  console.log("Recommended Books:", recommendationsData?.items);
-  console.log("bookData:", favouriteBookData);
-  console.log("author:", author);
-
   const recommendations = recommendationsData?.items;
 
   return (
     <>
-      <h1>Book Recommendations</h1>
+      <h2>Book Recommendations</h2>
       <form onSubmit={handleSubmit}>
+        <div className="search-container">
+          <input type="text" name="search" className="search-input"></input>
+          <button type="submit">Search</button>
+        </div>
         <label>
-          Please type in your favourite Book to get more recommendations
+          Please type in your favourite book or author to get recommendations
         </label>
-        <input type="text" name="search" className="search-input"></input>
-        <button type="submit">Search</button>
+        {/* <label>Choose genre</label>
+        <input type="checkbox" id="scales" name="scales" checked />
+        <label for="scales">Fiction</label> */}
       </form>
       <Books books={recommendations} />
     </>

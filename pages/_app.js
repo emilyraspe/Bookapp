@@ -14,7 +14,7 @@ import "../components/AddToBookshelfForm/AddToBookshelfForm.css";
 import "../components/BookshelfForm/BookshelfForm.css";
 import "../components/BookshelfList/BookshelfList.css";
 import "../components/Profile/Profile.css";
-import "../components/Achievement/Archievments.css";
+import "../components/Archievement/Archievments.css";
 import "../components/Bookshelf/Bookshelf.css";
 
 export default function App({ Component, pageProps, session }) {

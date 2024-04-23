@@ -1,6 +1,6 @@
 import Link from "next/link";
 import BookshelfForm from "../BookshelfForm/BookshelfForm";
-import Archievment from "../Achievement/Achievement";
+import Archievment from "../Archievement/Archievement";
 import useSWR from "swr";
 
 export default function Profile({ session }) {
@@ -25,14 +25,14 @@ export default function Profile({ session }) {
           <img src={session.user.image} className="profile-img" />
         </div>
         <div className="profile-overview">
-          <h1 className="profile-name">{session.user.name}</h1>
-          <Link href="/markedasread">
-            You read {booksReadNumber} Books. See all ⭢
-          </Link>
+          <p className="profile-name">{session.user.name}</p>
+          <p className="tagline small-text">{session.user.email}</p>
         </div>
       </div>
+      <Link href="/markedasread">
+        <Archievment booksReadNumber={booksReadNumber} />
+      </Link>
       <BookshelfForm />
-      <Archievment booksReadNumber={booksReadNumber} />
     </>
   );
 }

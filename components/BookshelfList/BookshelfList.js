@@ -1,17 +1,24 @@
 export default function BookshelfList({ data, session }) {
   return (
-    <ul>
+    <>
+      <h2>Bookshelves</h2>
       {data
         .filter((shelf) => shelf.userId === session.user.userId)
         .map((shelf, id) => (
-          <a
-            href={`bookshelves/${shelf._id}`}
-            key={shelf._id}
-            className="bookshelflist-link"
-          >
-            <li className="bookshelflist-item">{shelf.name}</li>
-          </a>
+          <div className="bookshelflist-item">
+            <div>
+              <p className="small-text">–0{id + 1}</p>
+              <p>{shelf.name}</p>
+            </div>
+            <a
+              href={`bookshelves/${shelf._id}`}
+              key={shelf._id}
+              className="bookshelflist-link"
+            >
+              <p>𐃘</p>
+            </a>
+          </div>
         ))}
-    </ul>
+    </>
   );
 }

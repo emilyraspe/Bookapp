@@ -37,11 +37,11 @@ export default function BookshelfForm() {
     }
   }
 
+  console.log("shelf", data);
+
   return (
     <>
       <div>
-        <h2>Bookshelves</h2>
-
         {session?.user.userId && data ? (
           <BookshelfList data={data} session={session} />
         ) : (
@@ -49,7 +49,7 @@ export default function BookshelfForm() {
         )}
       </div>
       <div className="bookshelfForm-container">
-        <h2>Create a new Bookshelf</h2>
+        <h3>Create a new Bookshelf</h3>
         <form onSubmit={handleSubmit} className="bookshelfForm-form">
           <div className="bookshelfinput-container">
             <input

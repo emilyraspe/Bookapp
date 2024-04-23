@@ -23,8 +23,10 @@ export default function Home() {
   const genres = ["hardcover-nonfiction", "hardcover-fiction"];
   const genre = "hardcover-nonfiction";
 
-  const bestsellerAPI = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-nonfiction.json?api-key=${API_KEY_bestseller}`;
-  const { data, error } = useSWR(bestsellerAPI, fetcher);
+  const bestsellerAPI1 = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-nonfiction.json?api-key=${API_KEY_bestseller}`;
+
+  const { data, error } = useSWR(bestsellerAPI1, fetcher);
+  console.log(data);
 
   if (!data && !error) {
     // loading
@@ -42,13 +44,25 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Bookapp</title>
+        <title>PageTurner</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <h1>Discover your next favourite book</h1>
+      <h1 className="pageturner">PageTurner</h1>
+      <h2>
+        Discover your next favourite Book <a href="#bestseller">ↆ</a>
+      </h2>
       <div className="content">
         <BestSellerBooks bestSellerBooks={bestSellerBooks} />
+      </div>
+      <div className="cta-recommentations">
+        <h2>Don't know what to read next?</h2>
+        <p className="tagline">
+          <a href="/recommendations" className="link-underline">
+            Click here
+          </a>{" "}
+          for recommendations!
+        </p>
       </div>
     </>
   );
