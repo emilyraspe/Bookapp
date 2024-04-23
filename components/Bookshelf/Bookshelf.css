@@ -1,5 +1,14 @@
-.bookshelf-header {
-  padding-bottom: 25px;
-  border-bottom: 1px solid var(--color-black);
-  margin-bottom: 40px;
+.bookshelf-button-container {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0px;
+}
+
+.button-bookdelete {
+  border: none;
+  background: none;
+}
+.button-bookdelete:hover {
+  border: none;
+  background: none;
 }

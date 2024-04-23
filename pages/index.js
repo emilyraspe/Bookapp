@@ -58,8 +58,10 @@ export default function Home() {
       <div className="cta-recommentations">
         <h2>Don't know what to read next?</h2>
         <p className="tagline">
-          <a href="/recommendations">Click here</a> to get some new book
-          recommendations!
+          <a href="/recommendations" className="link-underline">
+            Click here
+          </a>{" "}
+          for recommendations!
         </p>
       </div>
     </>
