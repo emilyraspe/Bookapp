@@ -105,59 +105,67 @@ export default function BookDetails({
 
   return (
     <>
-      <Link href="/">Back</Link>
+      <button href="/">Go Back</button>
       <div className="details-container">
         <h1 className="details-title">{name}</h1>
 
         <div className="details-info">
-          <img src={image} height={200} alt={name} className="details-img" />
+          <img src={image} height={190} alt={name} className="details-img" />
 
           <div>
-            <p className="tagline">Author: {authors}</p>
-            <p className="tagline">Publisher: {publisher}</p>
+            <p>
+              <strong>Author </strong>
+              {authors}
+            </p>
+            <p>
+              <strong>Publisher </strong>
+              {publisher}
+            </p>
             {categories?.map((category, index) => (
-              <span key={index} className="details-genre">
+              <p key={index}>
+                <strong>Genre </strong>
                 {category}
-              </span>
+              </p>
             ))}
           </div>
         </div>
 
-        <h3>Description</h3>
+        <p>
+          <strong>Description</strong>
+        </p>
         <p className="details-description">{description}</p>
 
-        {/* <div className="quote-container">
-        <p className="quote">"{textSnippet}"</p>
-      </div> */}
-
         {session ? (
-          <div className="details-read">
-            <p>
+          <div className="details-userInteractions">
+            <AddToBookshelfForm bookdata={bookdata} />
+            <div className="details-read">
+              <p>
+                {isBookFound() ? (
+                  <p className="markedAsRead">
+                    {" "}
+                    <strong>{name}</strong> was marked read on{" "}
+                    {bookForDate?.date}
+                  </p>
+                ) : (
+                  ""
+                )}
+              </p>
               {isBookFound() ? (
-                <p>
-                  {" "}
-                  <strong>{name}</strong> was marked read on {bookForDate?.date}
-                </p>
+                <RemoveFromRead bookdata={bookdata} />
               ) : (
-                ""
+                <button onClick={addToReadBooks} /* disabled={isBookFound()} */>
+                  {" "}
+                  Mark as read
+                </button>
               )}
-            </p>
-            {isBookFound() ? (
-              <RemoveFromRead bookdata={bookdata} />
-            ) : (
-              <button onClick={addToReadBooks} /* disabled={isBookFound()} */>
-                {" "}
-                Mark as read
-              </button>
-            )}
+            </div>
           </div>
         ) : (
           ""
         )}
 
-        <AddToBookshelfForm bookdata={bookdata} />
         <div className="moreFromAuthor">
-          <h3>Books from {authors}</h3>
+          <h4>More books from {authors}</h4>
           <div className="details-more-containter">
             <Books books={authorData?.items} />
           </div>

@@ -2,11 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-black);
-  padding: 20px;
-  border-radius: 2px;
-  margin: 20px -20px 0px -20px;
-  color: var(--color-white);
+  color: var(--color-black);
 }
 
 .details-select {
@@ -16,11 +12,11 @@
   width: 60%;
   font-family: var(--font-sanSerif);
   font-size: 16px;
-  color: var(--color-white);
+  color: var(--color-black);
 }
 
 .details-form-button {
-  background: none;
+  background: var(--color-black);
   color: var(--color-white);
-  border-color: var(--color-white);
+  border-color: var(--color-black);
 }
