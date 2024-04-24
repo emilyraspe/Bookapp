@@ -20,7 +20,10 @@ export default function BestSellerBooks({ bestSellerBooks }) {
           <div key={book.primary_isbn13} className="bestseller-group">
             <p className="bestseller-rank">{book.rank}</p>{" "}
             <Link href={`/books/${book.primary_isbn13}`}>
-              <img src={book.book_image} className="bookimage-small"></img>
+              <img
+                src={book.book_image}
+                className="bookimage-small-bestseller"
+              ></img>
             </Link>
             <p className="title">{book.title}</p>
             <p className="author">{book.author}</p>

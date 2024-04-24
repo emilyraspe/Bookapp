@@ -50,7 +50,7 @@ export default function Home() {
 
       <h1 className="pageturner">PageTurner</h1>
       <h2>
-        Discover your next favourite Book <a href="#bestseller">ↆ</a>
+        Discover your next favourite Book <a href="#bestseller">↴</a>
       </h2>
       <div className="content">
         <BestSellerBooks bestSellerBooks={bestSellerBooks} />

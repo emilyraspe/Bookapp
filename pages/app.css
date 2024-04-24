@@ -77,56 +77,18 @@ body {
 
 .small-text {
   font-size: 14px;
-  color: var(--color-grey);
+  color: var(--color-darkgrey);
 }
 
 main {
-  padding: 80px 15px;
-}
-
-.bookimage-small {
-  height: 250px;
-  margin-bottom: 10px;
-  background-color: var(--color-black);
-}
-
-.title {
-  font-weight: 700;
-}
-
-.author {
-  font-weight: 200;
-  font-size: 14px;
-}
-
-.quote {
-  font-weight: 200;
-  font-style: italic;
-  font-size: 18px;
+  padding: 30px 15px;
 }
 
 .tagline {
   color: var(--color-darkgrey);
 }
 
-.link-underline {
+.link-underline:hover {
   text-decoration: underline;
   text-underline-offset: 6px;
-}
-
-/*Scrollbar
-/* width */
-::-webkit-scrollbar {
-  height: 2px;
-  width: 2px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: var(--color-grey);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: var(--color-black);
 }

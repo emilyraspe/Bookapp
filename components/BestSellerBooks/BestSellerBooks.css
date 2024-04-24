@@ -4,6 +4,22 @@
   margin: 50px -20px;
   padding: 20px 20px;
   background-color: var(--color-lightgrey);
+  /*Scrollbar
+/* width */
+  ::-webkit-scrollbar {
+    height: 2px;
+    width: 2px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--color-grey);
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-black);
+  }
 }
 
 .bestseller-container {
@@ -38,4 +54,10 @@
 
 .bestseller-description {
   display: flex;
+}
+
+.bookimage-small-bestseller {
+  height: 250px;
+  margin-bottom: 10px;
+  background-color: var(--color-black);
 }

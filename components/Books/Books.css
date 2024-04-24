@@ -1,4 +1,25 @@
 .book-container {
-  width: 160px;
   margin-bottom: 30px;
+  display: flex;
+}
+
+.bookimage-small {
+  width: 160px;
+  margin-bottom: 10px;
+  background-color: var(--color-black);
+}
+
+.title {
+  font-weight: 700;
+}
+
+.author {
+  font-weight: 200;
+  font-size: 14px;
+}
+
+.quote {
+  font-weight: 200;
+  font-style: italic;
+  font-size: 18px;
 }

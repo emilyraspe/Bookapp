@@ -24,8 +24,19 @@ export default function Books({ books }) {
               className="bookimage-small"
             ></img>
           </Link>
-          <p className="title">{book.volumeInfo.title}</p>
-          <p className="author">{book.volumeInfo.authors}</p>
+          <div>
+            <p className="title">{book.volumeInfo.title}</p>
+            <p className="author">{book.volumeInfo.authors}</p>
+            {/*   <p className="small-text">
+              {book.searchInfo.textSnippet}{" "}
+              <a
+                href={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}
+                className="small-text"
+              >
+                [read more]
+              </a>
+            </p> */}
+          </div>
         </div>
       ))}
     </>
