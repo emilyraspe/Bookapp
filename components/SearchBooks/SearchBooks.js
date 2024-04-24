@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 
-export default function Books({ books }) {
+export default function SearchBooks({ books }) {
   if (!books || books.length === 0) {
     return;
   }
@@ -15,7 +14,7 @@ export default function Books({ books }) {
             href={`/books/${
               book.volumeInfo.industryIdentifiers &&
               book.volumeInfo.industryIdentifiers.length > 0
-                ? book.volumeInfo.industryIdentifiers[0].identifier
+                ? book.volumeInfo.industryIdentifiers[0]?.identifier
                 : "#"
             }`}
           >
@@ -29,7 +28,7 @@ export default function Books({ books }) {
             <p className="title">{book.volumeInfo.title}</p>
 
             <p className="textSnippet">
-              {book.searchInfo.textSnippet}{" "}
+              {book.searchInfo?.textSnippet}{" "}
               <a
                 href={`/books/${
                   book.volumeInfo.industryIdentifiers?.[0]?.identifier || "#"

@@ -2,8 +2,8 @@ import AddToBookshelfForm from "../AddToBookshelfForm/AddToBookshelfForm";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
 import RemoveFromRead from "../RemoveFromRead/RemoveFromRead";
-import Books from "../Books/Books";
-import Link from "next/link";
+import MoreFromAuthor from "../MoreFromAuthor/MoreFromAuthor";
+import { useRouter } from "next/router";
 
 const fetcher = async (url) => await fetch(url).then((res) => res.json());
 
@@ -19,6 +19,7 @@ export default function BookDetails({
   textSnippet,
   pageCount,
 }) {
+  const router = useRouter();
   const { data: session } = useSession();
   const {
     data: readBooks,
@@ -103,63 +104,76 @@ export default function BookDetails({
   const { data: authorData, error } = useSWR(authorURL, fetcher);
   console.log("authorData", authorData);
 
+  //button
+  function goBack() {
+    router.push("/");
+  }
+
   return (
     <>
-      <Link href="/">Back</Link>
+      <button onClick={goBack}>Go Back</button>
       <div className="details-container">
         <h1 className="details-title">{name}</h1>
 
         <div className="details-info">
-          <img src={image} height={200} alt={name} className="details-img" />
+          <img src={image} height={190} alt={name} className="details-img" />
 
           <div>
-            <p className="tagline">Author: {authors}</p>
-            <p className="tagline">Publisher: {publisher}</p>
+            <p>
+              <strong>Author </strong>
+              {authors}
+            </p>
+            <p>
+              <strong>Publisher </strong>
+              {publisher}
+            </p>
             {categories?.map((category, index) => (
-              <span key={index} className="details-genre">
+              <p key={index}>
+                <strong>Genre </strong>
                 {category}
-              </span>
+              </p>
             ))}
           </div>
         </div>
 
-        <h3>Description</h3>
+        <p>
+          <strong>Description</strong>
+        </p>
         <p className="details-description">{description}</p>
 
-        {/* <div className="quote-container">
-        <p className="quote">"{textSnippet}"</p>
-      </div> */}
-
         {session ? (
-          <div className="details-read">
-            <p>
+          <div className="details-userInteractions">
+            <AddToBookshelfForm bookdata={bookdata} />
+            <div className="details-read">
+              <p>
+                {isBookFound() ? (
+                  <p className="markedAsRead">
+                    {" "}
+                    <strong>{name}</strong> was marked read on{" "}
+                    {bookForDate?.date}
+                  </p>
+                ) : (
+                  ""
+                )}
+              </p>
               {isBookFound() ? (
-                <p>
-                  {" "}
-                  <strong>{name}</strong> was marked read on {bookForDate?.date}
-                </p>
+                <RemoveFromRead bookdata={bookdata} />
               ) : (
-                ""
+                <button onClick={addToReadBooks} /* disabled={isBookFound()} */>
+                  {" "}
+                  Mark as read
+                </button>
               )}
-            </p>
-            {isBookFound() ? (
-              <RemoveFromRead bookdata={bookdata} />
-            ) : (
-              <button onClick={addToReadBooks} /* disabled={isBookFound()} */>
-                {" "}
-                Mark as read
-              </button>
-            )}
+            </div>
           </div>
         ) : (
           ""
         )}
 
-        <AddToBookshelfForm bookdata={bookdata} />
         <div className="moreFromAuthor">
-          <h3>Books from {authors}</h3>
+          <h4>More books from {authors}</h4>
           <div className="details-more-containter">
-            <Books books={authorData?.items} />
+            <MoreFromAuthor books={authorData?.items} />
           </div>
         </div>
       </div>

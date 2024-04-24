@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Books({ books }) {
@@ -10,7 +9,7 @@ export default function Books({ books }) {
   return (
     <>
       {books?.map((book) => (
-        <div key={book.id} className="book-container">
+        <div key={book.id} className="moreFromAuthor-container">
           <Link
             href={`/books/${
               book.volumeInfo.industryIdentifiers &&
@@ -25,20 +24,17 @@ export default function Books({ books }) {
             ></img>
           </Link>
           <div>
-            <p className="author">{book.volumeInfo.authors}</p>
             <p className="title">{book.volumeInfo.title}</p>
-
-            <p className="textSnippet">
-              {book.searchInfo.textSnippet}{" "}
-              <a
-                href={`/books/${
-                  book.volumeInfo.industryIdentifiers?.[0]?.identifier || "#"
-                }`}
-                className="readMore"
-              >
-                [read more]
-              </a>
-            </p>
+            <p className="author">{book.volumeInfo.authors}</p>
+            {/*   <p className="small-text">
+                {book.searchInfo.textSnippet}{" "}
+                <a
+                  href={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}
+                  className="small-text"
+                >
+                  [read more]
+                </a>
+              </p> */}
           </div>
         </div>
       ))}

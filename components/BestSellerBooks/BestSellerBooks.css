@@ -1,9 +1,26 @@
 @import url("../../pages/app.css");
 
 .content {
-  margin: 50px -20px;
-  padding: 20px 20px;
-  background-color: var(--color-lightgrey);
+  margin: 50px 0;
+  padding-top: 25px;
+  border-top: 1px solid var(--color-black);
+
+  /*Scrollbar
+/* width */
+  ::-webkit-scrollbar {
+    height: 2px;
+    width: 2px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--color-lightgrey);
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-black);
+  }
 }
 
 .bestseller-container {
@@ -12,7 +29,7 @@
   flex-wrap: nowrap;
   overflow-x: scroll;
   padding-top: 25px;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
 }
 
 .bestseller-group {
@@ -36,6 +53,24 @@
   font-weight: 500;
 }
 
+.bestseller-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.bestseller-author {
+  font-size: 14px;
+  font-weight: 200;
+  color: var(--color-darkgrey);
+  padding-bottom: 5px;
+}
+
 .bestseller-description {
   display: flex;
+}
+
+.bookimage-small-bestseller {
+  height: 250px;
+  margin-bottom: 10px;
+  background-color: var(--color-black);
 }

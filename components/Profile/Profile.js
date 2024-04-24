@@ -29,9 +29,9 @@ export default function Profile({ session }) {
           <p className="tagline small-text">{session.user.email}</p>
         </div>
       </div>
-      <Link href="/markedasread">
-        <Archievment booksReadNumber={booksReadNumber} />
-      </Link>
+
+      <Archievment booksReadNumber={booksReadNumber} />
+
       <BookshelfForm />
     </>
   );

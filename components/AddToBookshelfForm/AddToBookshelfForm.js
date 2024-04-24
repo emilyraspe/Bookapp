@@ -62,7 +62,7 @@ export default function AddToBookshelfForm({ bookdata }) {
               ))}
           </select>
           <button type="submit" className="details-form-button">
-            +
+            Add
           </button>
         </form>
       )}
