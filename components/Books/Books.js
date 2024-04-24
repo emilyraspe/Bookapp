@@ -25,17 +25,18 @@ export default function Books({ books }) {
             ></img>
           </Link>
           <div>
-            <p className="title">{book.volumeInfo.title}</p>
             <p className="author">{book.volumeInfo.authors}</p>
-            {/*   <p className="small-text">
+            <p className="title">{book.volumeInfo.title}</p>
+
+            <p className="textSnippet">
               {book.searchInfo.textSnippet}{" "}
               <a
                 href={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}
-                className="small-text"
+                className="readMore"
               >
                 [read more]
               </a>
-            </p> */}
+            </p>
           </div>
         </div>
       ))}
