@@ -2,8 +2,7 @@ import AddToBookshelfForm from "../AddToBookshelfForm/AddToBookshelfForm";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
 import RemoveFromRead from "../RemoveFromRead/RemoveFromRead";
-import Books from "../Books/Books";
-import Link from "next/link";
+import MoreFromAuthor from "../MoreFromAuthor/MoreFromAuthor";
 
 const fetcher = async (url) => await fetch(url).then((res) => res.json());
 
@@ -167,7 +166,7 @@ export default function BookDetails({
         <div className="moreFromAuthor">
           <h4>More books from {authors}</h4>
           <div className="details-more-containter">
-            <Books books={authorData?.items} />
+            <MoreFromAuthor books={authorData?.items} />
           </div>
         </div>
       </div>

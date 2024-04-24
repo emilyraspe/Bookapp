@@ -17,6 +17,7 @@ import "../components/Profile/Profile.css";
 import "../components/Archievement/Archievments.css";
 import "../components/Bookshelf/Bookshelf.css";
 import "../components/BookshelfBooks/BookshelfBooks.css";
+import "../components/MoreFromAuthor/MoreFromAuthor.css";
 
 export default function App({ Component, pageProps, session }) {
   return (
