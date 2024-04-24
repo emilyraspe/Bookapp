@@ -12,7 +12,7 @@ export default function BestSellerBooks({ bestSellerBooks }) {
   return (
     <>
       <h2 id="bestseller">Bestseller in the category </h2>
-      <p>Non-Fiction</p>
+      <p className="tagline">Non-Fiction</p>
       <div className="bestseller-container">
         {bestSellerBooks.map((book) => (
           <div key={book.primary_isbn13} className="bestseller-group">

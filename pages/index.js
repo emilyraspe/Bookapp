@@ -65,8 +65,10 @@ export default function Home() {
       <div className="cta-recommentations">
         <h2>Don't know what to read next?</h2>
 
-        <a href="/recommendations" className="link-underline">
-          <button>Book recommendation</button>
+        <a href="/recommendations">
+          <button className="cta-recommentations-button">
+            Book recommendation
+          </button>
         </a>
       </div>
     </>
