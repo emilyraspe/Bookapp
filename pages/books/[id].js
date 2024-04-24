@@ -21,7 +21,7 @@ export default function BookDetailsPage({ books }) {
     bookInfo = data.items[0].volumeInfo;
   } else {
     // If 'data.items' doesn't exist or is empty
-    bookInfo = data.volumeInfo;
+    bookInfo = data?.volumeInfo;
   }
   console.log("HIIIIII", data);
 

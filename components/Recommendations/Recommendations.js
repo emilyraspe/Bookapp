@@ -3,10 +3,8 @@ import Books from "../Books/Books";
 import { useState } from "react";
 
 export default function Recommendations() {
-  const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
-  const [input, setInput] = useState("");
-
-  function handleSubmit(event) {
+  //Google Books API
+  /* function handleSubmit(event) {
     event.preventDefault();
     const searchInput = event.target.search.value;
     handleInputChange(searchInput);
@@ -42,19 +40,28 @@ export default function Recommendations() {
   return (
     <>
       <h2>Book Recommendations</h2>
-      <form onSubmit={handleSubmit}>
+      <form  onSubmit={handleSubmit} >
         <div className="search-container">
           <input type="text" name="search" className="search-input"></input>
           <button type="submit">Search</button>
         </div>
         <label>
           Please type in your favourite book or author to get recommendations
+          <br />
         </label>
-        {/* <label>Choose genre</label>
-        <input type="checkbox" id="scales" name="scales" checked />
-        <label for="scales">Fiction</label> */}
+
+        <input type="radio" id="fiction" name="fav_language" value="HTML" />
+        <label for="fiction">Fiction</label>
+
+        <input
+          type="radio"
+          id="science-fiction"
+          name="fav_language"
+          value="HTML"
+        />
+        <label for="science-fiction">Science-Fiction</label>
       </form>
-      <Books books={recommendations} />
+      <Books  books={recommendations}  />
     </>
-  );
+  );*/
 }
