@@ -4,6 +4,10 @@
   /*   -webkit-text-stroke-width: 1px;
   -webkit-text-fill-color: white; */
   font-size: 62px;
-  font-weight: 600;
+  font-weight: 300;
   padding-bottom: 10px;
+}
+
+.cta-recommentations {
+  margin-bottom: 25px;
 }

@@ -11,9 +11,7 @@ export default function BestSellerBooks({ bestSellerBooks }) {
 
   return (
     <>
-      <p className="tagline" id="bestseller">
-        Bestseller in the category{" "}
-      </p>
+      <h2 id="bestseller">Bestseller in the category </h2>
       <p>Non-Fiction</p>
       <div className="bestseller-container">
         {bestSellerBooks.map((book) => (
@@ -25,8 +23,8 @@ export default function BestSellerBooks({ bestSellerBooks }) {
                 className="bookimage-small-bestseller"
               ></img>
             </Link>
-            <p className="title">{book.title}</p>
-            <p className="author">{book.author}</p>
+            <p className="bestseller-author">{book.author}</p>
+            <p className="bestseller-title">{book.title}</p>
           </div>
         ))}
       </div>

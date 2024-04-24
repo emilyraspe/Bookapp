@@ -49,20 +49,25 @@ export default function Home() {
       </Head>
 
       <h1 className="pageturner">PageTurner</h1>
-      <h2>
-        Discover your next favourite Book <a href="#bestseller">↴</a>
-      </h2>
+      <p>
+        Are you tired of losing track of the books you've read, forgetting
+        titles you want to explore, or struggling to discover your next literary
+        adventure? Look no further! <br />
+        PageTurner is designed to streamline your reading experience, whether
+        you're a seasoned bookworm or just dipping your toes into the vast world
+        of literature. Explore personalized recommendations based on your
+        interests and discover your next favourite Book{" "}
+        <a href="#bestseller">↴</a>
+      </p>
       <div className="content">
         <BestSellerBooks bestSellerBooks={bestSellerBooks} />
       </div>
       <div className="cta-recommentations">
         <h2>Don't know what to read next?</h2>
-        <p className="tagline">
-          <a href="/recommendations" className="link-underline">
-            Click here
-          </a>{" "}
-          for recommendations!
-        </p>
+
+        <a href="/recommendations" className="link-underline">
+          <button>Book recommendation</button>
+        </a>
       </div>
     </>
   );

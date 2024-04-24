@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import useSWR from "swr";
 import RemoveFromRead from "../RemoveFromRead/RemoveFromRead";
 import MoreFromAuthor from "../MoreFromAuthor/MoreFromAuthor";
+import { useRouter } from "next/router";
 
 const fetcher = async (url) => await fetch(url).then((res) => res.json());
 
@@ -18,6 +19,7 @@ export default function BookDetails({
   textSnippet,
   pageCount,
 }) {
+  const router = useRouter();
   const { data: session } = useSession();
   const {
     data: readBooks,
@@ -102,9 +104,14 @@ export default function BookDetails({
   const { data: authorData, error } = useSWR(authorURL, fetcher);
   console.log("authorData", authorData);
 
+  //button
+  function goBack() {
+    router.push("/");
+  }
+
   return (
     <>
-      <button href="/">Go Back</button>
+      <button onClick={goBack}>Go Back</button>
       <div className="details-container">
         <h1 className="details-title">{name}</h1>
 

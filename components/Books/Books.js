@@ -31,7 +31,9 @@ export default function Books({ books }) {
             <p className="textSnippet">
               {book.searchInfo.textSnippet}{" "}
               <a
-                href={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}
+                href={`/books/${
+                  book.volumeInfo.industryIdentifiers?.[0]?.identifier || "#"
+                }`}
                 className="readMore"
               >
                 [read more]
