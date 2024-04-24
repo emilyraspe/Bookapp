@@ -15,11 +15,12 @@ export default function BookshelfBooks({ books, handleDelete }) {
               ></img>
             </Link>
             <div>
+              <p className="author">{obj.volumeInfo.authors}</p>
               <p key={obj.id} className="title">
                 {obj.volumeInfo.title}
               </p>
-              <p className="author">{obj.volumeInfo.authors}</p>
-              <p className="small-text">
+
+              <p className="textSnippet">
                 {obj.searchInfo?.textSnippet}{" "}
                 <a
                   href={`/books/${obj.volumeInfo.industryIdentifiers[0].identifier}`}
@@ -32,7 +33,7 @@ export default function BookshelfBooks({ books, handleDelete }) {
                 onClick={() => handleDelete(obj.id)}
                 className="button-bookdelete"
               >
-                X
+                Remove from shelf
               </button>
             </div>
           </div>
