@@ -24,7 +24,7 @@ export default function BookshelfBooks({ books, handleDelete }) {
                 {obj.searchInfo?.textSnippet}{" "}
                 <a
                   href={`/books/${obj.volumeInfo.industryIdentifiers[0].identifier}`}
-                  className="small-text"
+                  className="readMore"
                 >
                   [read more]
                 </a>
