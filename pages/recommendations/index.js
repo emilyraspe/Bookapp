@@ -52,56 +52,70 @@ export default function Rec() {
   return (
     <div>
       <h1>Get a book recommendation</h1>
-      <form onSubmit={handleClick}>
-        <input type="text" name="fav"></input>
-        <label>Whats your favourite book or author?</label>
+      <form onSubmit={handleClick} className="recommendation-form">
+        <label>
+          Describe the type of book you enjoy reading. This could include
+          mentioning your favorite author or book, or discussing the topics that
+          capture your interest.
+        </label>
+        <textarea type="text" name="fav" rows="4" cols="50"></textarea>
 
         <fieldset>
           <legend>Select a genre</legend>
 
-          <input
-            type="radio"
-            id="fiction"
-            name="genre"
-            value="fiction"
-            className="genre"
-          />
+          <div>
+            <input
+              type="radio"
+              id="fiction"
+              name="genre"
+              value="fiction"
+              className="genre"
+            />
 
-          <label htmlFor="fiction">Fiction</label>
-
-          <input
-            type="radio"
-            id="non-fiction"
-            name="genre"
-            value="non-fiction"
-          />
-          <label htmlFor="non-fiction">Non-Fiction</label>
-
-          <input
-            type="radio"
-            id="science-fiction"
-            name="genre"
-            value="science-fiction"
-          />
-          <label htmlFor="science-fiction">Science-Fiction</label>
-
-          <input type="radio" id="horror" name="genre" value="horror" />
-          <label htmlFor="horror">Horror</label>
-
-          <input type="radio" id="fantasy" name="genre" value="fantasy" />
-          <label htmlFor="fantasy">Fantasy</label>
-
-          <input type="radio" id="romance" name="genre" value="romance" />
-          <label htmlFor="romance">Romance</label>
-
-          <input type="radio" id="thriller" name="genre" value="thriller" />
-          <label htmlFor="thriller">Thriller</label>
-
-          <input type="radio" id="classics" name="genre" value="classics" />
-          <label htmlFor="classics">Classics</label>
-
-          <input type="radio" id="noGenre" name="genre" value="noGenre" />
-          <label htmlFor="noGenre">No genre</label>
+            <label htmlFor="fiction">Fiction</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="non-fiction"
+              name="genre"
+              value="non-fiction"
+            />
+            <label htmlFor="non-fiction">Non-Fiction</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="science-fiction"
+              name="genre"
+              value="science-fiction"
+            />
+            <label htmlFor="science-fiction">Science-Fiction</label>
+          </div>
+          <div>
+            <input type="radio" id="horror" name="genre" value="horror" />
+            <label htmlFor="horror">Horror</label>
+          </div>
+          <div>
+            <input type="radio" id="fantasy" name="genre" value="fantasy" />
+            <label htmlFor="fantasy">Fantasy</label>
+          </div>
+          <div>
+            <input type="radio" id="romance" name="genre" value="romance" />
+            <label htmlFor="romance">Romance</label>
+          </div>
+          <div>
+            <input type="radio" id="thriller" name="genre" value="thriller" />
+            <label htmlFor="thriller">Thriller</label>
+          </div>
+          <div>
+            <input type="radio" id="classics" name="genre" value="classics" />
+            <label htmlFor="classics">Classics</label>
+          </div>
+          <div>
+            <input type="radio" id="noGenre" name="genre" value="noGenre" />
+            <label htmlFor="noGenre">No genre</label>
+          </div>
         </fieldset>
 
         <button type="submit">Submit</button>
