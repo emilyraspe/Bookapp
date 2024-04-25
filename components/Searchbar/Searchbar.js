@@ -13,7 +13,7 @@ export default function Searchbar({ handleInputChange }) {
       <form onSubmit={handleSubmit} className="search-form">
         <div className="search-container">
           <input type="text" name="search" className="search-input"></input>
-          <button type="submit">
+          <button type="submit" className="search-button">
             {" "}
             <IoSearchSharp />
           </button>
