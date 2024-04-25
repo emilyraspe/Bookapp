@@ -35,9 +35,6 @@ export default function Search() {
       <div className="books-container">
         <SearchBooks books={books} />
       </div>
-      <p>
-        Need Bookinspiration? <Link href="/recommendations">Click here</Link>
-      </p>
     </>
   );
 }
