@@ -18,7 +18,6 @@ async function handler(req, res) {
     model: "claude-3-opus-20240229",
   });
 
-  console.log("Hallo", message);
   res.status(200).json(message.content);
 }
 

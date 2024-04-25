@@ -12,10 +12,15 @@ export default function BookDetailsPage({ books }) {
   const bookURL = `https://www.googleapis.com/books/v1/volumes?q=isbn:${id}`;
   const { data, error } = useSWR(bookURL, fetcher);
 
-  let bookInfo;
-  if (!data) {
-    return;
+  if (error) {
+    return <div>Error loading book details</div>;
   }
+
+  if (!data || data.totalItems === 0) {
+    return <div>No data found</div>; // Or you can display a message indicating no data found
+  }
+
+  let bookInfo;
   if (data.items && data.items.length > 0) {
     // If 'data.items' exists and is not empty
     bookInfo = data.items[0].volumeInfo;
