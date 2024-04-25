@@ -4,11 +4,17 @@ export default function SearchBooks({ books }) {
   if (!books || books.length === 0) {
     return;
   }
-  console.log(books);
+  const booksWithImages = books.filter(
+    (book) => book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail
+  );
+  if (booksWithImages.length === 0) {
+    return null;
+  }
+  console.log("balbalabal", booksWithImages);
 
   return (
     <>
-      {books?.map((book) => (
+      {booksWithImages?.map((book) => (
         <div key={book.id} className="book-container">
           <Link
             href={`/books/${

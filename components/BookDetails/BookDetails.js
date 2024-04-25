@@ -16,8 +16,6 @@ export default function BookDetails({
   description,
   publisher,
   bookdata,
-  textSnippet,
-  pageCount,
 }) {
   const router = useRouter();
   const { data: session } = useSession();
