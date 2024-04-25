@@ -6,7 +6,7 @@ const fetcher = async (url) => await fetch(url).then((res) => res.json());
 
 export default function Rec() {
   const [aiData, SetAiData] = useState("");
-  //get data from claude ai
+  // data from claude ai
   async function handleClick(event) {
     event.preventDefault();
     const inputValue = event.target.elements.fav.value;
@@ -45,7 +45,7 @@ export default function Rec() {
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
   const googleBooksURL = `https://www.googleapis.com/books/v1/volumes?q=${bookFromAI}&maxResults=1&key=${API_KEY}`;
 
-  const { data, error } = useSWR(googleBooksURL, fetcher);
+  const { data, error, isLoading } = useSWR(googleBooksURL, fetcher);
 
   const book = data?.items[0];
 
@@ -120,7 +120,11 @@ export default function Rec() {
 
         <button type="submit">Submit</button>
       </form>
-      {bookFromAI ? <Recommendations book={book} /> : ""}
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        bookFromAI && <Recommendations book={book} />
+      )}
     </div>
   );
 }
