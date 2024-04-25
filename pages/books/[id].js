@@ -17,16 +17,28 @@ export default function BookDetailsPage({ books }) {
   }
 
   if (!data || data.totalItems === 0) {
-    return <div>No data found</div>; // Or you can display a message indicating no data found
+    return <div>No data found</div>;
   }
 
   let bookInfo;
   if (data.items && data.items.length > 0) {
     // If 'data.items' exists and is not empty
-    bookInfo = data.items[0].volumeInfo;
+    const itemsWithThumbnail = data.items.filter(
+      (item) =>
+        item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
+    );
+    if (itemsWithThumbnail.length > 0) {
+      bookInfo = itemsWithThumbnail[0].volumeInfo;
+    } else {
+      return <div>No data found</div>;
+    }
   } else {
     // If 'data.items' doesn't exist or is empty
-    bookInfo = data.volumeInfo;
+    if (data.volumeInfo.imageLinks && data.volumeInfo.imageLinks.thumbnail) {
+      bookInfo = data.volumeInfo;
+    } else {
+      return <div>No data found with thumbnail</div>;
+    }
   }
   console.log("HIIIIII", data);
 
@@ -42,7 +54,6 @@ export default function BookDetailsPage({ books }) {
           description={bookInfo.description}
           publisher={bookInfo.publisher}
           bookdata={data}
-          textSnippet={data?.items[0].searchInfo.textSnippet}
           pageCount={bookInfo.pageCount}
         />
       </>
