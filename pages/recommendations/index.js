@@ -97,7 +97,13 @@ export default function Rec() {
             <label htmlFor="horror">Horror</label>
           </div>
           <div>
-            <input type="radio" id="fantasy" name="genre" value="fantasy" />
+            <input
+              type="radio"
+              id="fantasy"
+              name="genre"
+              value="fantasy"
+              className="radio"
+            />
             <label htmlFor="fantasy">Fantasy</label>
           </div>
           <div>
