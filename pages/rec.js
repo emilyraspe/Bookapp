@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 export default function Rec() {
+  const [data, SetDate] = useState("");
   async function handleClick(event) {
     event.preventDefault();
     const inputValue = event.target.elements.fav.value;
@@ -21,11 +24,14 @@ export default function Rec() {
       });
       const responseData = await response.json();
       console.log("Response Data:", responseData);
+      SetDate(responseData);
     } catch (error) {
       console.error("Error:", error);
     }
     console.log("SearchInput", searchInput);
+    event.target.reset();
   }
+  console.log("===", data);
 
   return (
     <div>
@@ -35,8 +41,7 @@ export default function Rec() {
         <label>Whats your favourite Book or Author?</label>
         <button type="submit">Submit</button>
       </form>
-
-      <p>{responseData}</p>
+      {data && <p>{data[0].text}</p>}
     </div>
   );
 }

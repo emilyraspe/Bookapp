@@ -12,7 +12,7 @@ async function handler(req, res) {
     messages: [
       {
         role: "user",
-        content: `Give me two book recommendation based on ${searchInput}. Only answer with the title and author of the book`,
+        content: `Give me one book recommendation based on ${searchInput}. Only answer with the title and author of the book. Don't recommend books from the same author.`,
       },
     ],
     model: "claude-3-opus-20240229",
