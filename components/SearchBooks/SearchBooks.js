@@ -4,7 +4,6 @@ export default function SearchBooks({ books }) {
   if (!books || books.length === 0) {
     return;
   }
-  console.log(books);
 
   return (
     <>
