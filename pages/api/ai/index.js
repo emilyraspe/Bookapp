@@ -5,14 +5,14 @@ const anthropic = new Anthropic({
 });
 
 async function handler(req, res) {
-  const { searchInput } = req.body;
+  const { searchInput, genre } = req.body;
 
   const message = await anthropic.messages.create({
     max_tokens: 1024,
     messages: [
       {
         role: "user",
-        content: `Give me one book recommendation based on ${searchInput}. Only answer with the title of the book. Don't recommend books from the same author as from the ${searchInput}.`,
+        content: `Give me one book recommendation based on ${searchInput} and consider the genre ${genre}. Only answer with the title of the book. `,
       },
     ],
     model: "claude-3-opus-20240229",
