@@ -2,6 +2,7 @@ import { useState } from "react";
 import useSWR from "swr";
 import SearchBooks from "../../components/SearchBooks/SearchBooks";
 import Link from "next/link";
+import Recommendations from "../../components/Recommendations/Recommendations";
 
 const fetcher = async (url) => await fetch(url).then((res) => res.json());
 
@@ -54,42 +55,10 @@ export default function Rec() {
       <h1>Get a book recommendation</h1>
       <form onSubmit={handleClick}>
         <input type="text" name="fav"></input>
-        <label>Whats your favourite Book or Author?</label>
+        <label>Whats your favourite book or author?</label>
         <button type="submit">Submit</button>
       </form>
-      {book && (
-        <div key={book.id} className="book-container">
-          <Link
-            href={`/books/${
-              book.volumeInfo.industryIdentifiers &&
-              book.volumeInfo.industryIdentifiers.length > 0
-                ? book.volumeInfo.industryIdentifiers[0]?.identifier
-                : "#"
-            }`}
-          >
-            <img
-              src={book.volumeInfo.imageLinks?.thumbnail}
-              className="bookimage-small"
-            ></img>
-          </Link>
-          <div>
-            <p className="author">{book.volumeInfo.authors}</p>
-            <p className="title">{book.volumeInfo.title}</p>
-
-            <p className="textSnippet">
-              {book.searchInfo?.textSnippet}{" "}
-              <a
-                href={`/books/${
-                  book.volumeInfo.industryIdentifiers?.[0]?.identifier || "#"
-                }`}
-                className="readMore"
-              >
-                [read more]
-              </a>
-            </p>
-          </div>
-        </div>
-      )}
+      {bookFromAI ? <Recommendations book={book} /> : ""}
     </div>
   );
 }
