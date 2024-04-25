@@ -1,11 +1,10 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { useState } from "react";
 
 const anthropic = new Anthropic({
   apiKey: process.env["ANTHROPIC_API_KEY"],
 });
 
-async function main(message) {
+async function main() {
   const message = await anthropic.messages.create({
     max_tokens: 1024,
     messages: [{ role: "user", content: "Is this working?" }],
@@ -13,6 +12,7 @@ async function main(message) {
   });
 
   console.log("Hallo", message.content);
+  return message;
 }
 
-main(message);
+export default main;
