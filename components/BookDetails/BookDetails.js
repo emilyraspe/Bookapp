@@ -104,7 +104,7 @@ export default function BookDetails({
 
   //button
   function goBack() {
-    router.push("/");
+    window.history.back();
   }
 
   return (
@@ -126,7 +126,7 @@ export default function BookDetails({
               {publisher}
             </p>
             <p>
-              <strong>Publish date </strong>
+              <strong>Published date </strong>
               {published}
             </p>
             {categories?.map((category, index) => (
