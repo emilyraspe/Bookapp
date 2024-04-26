@@ -26,7 +26,6 @@ export default function Home() {
   const bestsellerAPI1 = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-nonfiction.json?api-key=${API_KEY_bestseller}`;
 
   const { data, error } = useSWR(bestsellerAPI1, fetcher);
-  console.log(data);
 
   if (!data && !error) {
     // loading
@@ -39,7 +38,6 @@ export default function Home() {
   }
 
   const bestSellerBooks = data?.results?.books;
-  console.log(data);
 
   return (
     <>

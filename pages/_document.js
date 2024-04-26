@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link rel="icon" href="/src/open-book.png" />
+        <link rel="icon" type="image/x-icon" href="/src/favicon.ico" />
       </Head>
       <body>
         <Main />
