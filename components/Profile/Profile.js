@@ -16,16 +16,16 @@ export default function Profile({ session }) {
   if (userBooks) {
     booksReadNumber = userBooks[0].books.length;
   }
-  console.log("BooksReadNumber", booksReadNumber);
+  console.log("BooksReadNumber", session.user.image);
 
   return (
     <>
       <div className="profile-container">
-        <div className="profile-img">
+        {/* <div className="profile-img">
           <img src={session.user.image} className="profile-img" />
-        </div>
+        </div> */}
         <div className="profile-overview">
-          <p className="profile-name">{session.user.name}</p>
+          <h1 className="profile-name">{session.user.name}</h1>
           <p className="tagline small-text">{session.user.email}</p>
         </div>
       </div>

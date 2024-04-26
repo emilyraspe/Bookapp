@@ -5,14 +5,21 @@ import Archievment50 from "./Archievment-50";
 export default function Archievment({ booksReadNumber }) {
   return (
     <>
-      <a className="tagline small-text" href="/markedasread">
-        Archievments for reading {booksReadNumber} books
-      </a>
-      <div className="archievments-container">
-        {booksReadNumber >= 10 ? <Archievment10 /> : "No archievments yet"}
-        {booksReadNumber >= 20 ? <Archievment20 /> : ""}
-        {booksReadNumber >= 50 ? <Archievment50 /> : ""}
-      </div>
+      {booksReadNumber >= 10 && booksReadNumber < 20 ? (
+        <Archievment10 booksReadNumber={booksReadNumber} />
+      ) : (
+        ""
+      )}
+      {booksReadNumber >= 20 && booksReadNumber < 50 ? (
+        <Archievment20 booksReadNumber={booksReadNumber} />
+      ) : (
+        ""
+      )}
+      {booksReadNumber >= 50 ? (
+        <Archievment50 booksReadNumber={booksReadNumber} />
+      ) : (
+        ""
+      )}
     </>
   );
 }

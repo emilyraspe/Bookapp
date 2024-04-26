@@ -1,23 +1,30 @@
+import { MdOutlineArrowOutward } from "react-icons/md";
+
 export default function BookshelfList({ data, session }) {
   return (
     <>
-      <h2>Bookshelves</h2>
+      <div className="header-bookshelfList">
+        <h3>Bookshelves</h3>
+      </div>
       {data
         .filter((shelf) => shelf.userId === session.user.userId)
         .map((shelf, id) => (
-          <div className="bookshelflist-item">
-            <div>
-              <p className="small-text">–0{id + 1}</p>
-              <p>{shelf.name}</p>
+          <a
+            href={`bookshelves/${shelf._id}`}
+            key={shelf._id}
+            className="bookshelflist-link"
+          >
+            <div className="bookshelflist-item">
+              <div>
+                <h4>{shelf.name}</h4>
+                <p className="small-text">
+                  {shelf.books.length} Books in this shelf
+                </p>
+              </div>
+
+              <MdOutlineArrowOutward fontSize={22} />
             </div>
-            <a
-              href={`bookshelves/${shelf._id}`}
-              key={shelf._id}
-              className="bookshelflist-link"
-            >
-              <p>𐃘</p>
-            </a>
-          </div>
+          </a>
         ))}
     </>
   );

@@ -20,7 +20,7 @@
 }
 
 .bookshelfForm-container {
-  margin: 40px -20px 0px -20px;
-  background-color: var(--color-lightgrey);
-  padding: 20px;
+  padding: 25px 0px;
+  margin-top: 25px;
+  border-top: 1px solid var(--color-black);
 }
