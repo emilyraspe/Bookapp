@@ -125,6 +125,10 @@ export default function BookDetails({
               <strong>Publisher </strong>
               {publisher}
             </p>
+            <p>
+              <strong>Publish date </strong>
+              {published}
+            </p>
             {categories?.map((category, index) => (
               <p key={index}>
                 <strong>Genre </strong>
