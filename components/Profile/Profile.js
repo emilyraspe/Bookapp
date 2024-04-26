@@ -16,7 +16,7 @@ export default function Profile({ session }) {
   if (userBooks) {
     booksReadNumber = userBooks[0].books.length;
   }
-  console.log("BooksReadNumber", booksReadNumber);
+  console.log("BooksReadNumber", session.user.image);
 
   return (
     <>
