@@ -16,7 +16,7 @@
   padding: 10px;
   border: none;
   border-left: 1px solid var(--color-black);
-  background: none;
+  background-color: var(--color-white);
   text-align: center;
   font-size: 16px;
   font-weight: 400;
