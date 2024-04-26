@@ -57,7 +57,6 @@ export default function Home() {
         you're a seasoned bookworm or just dipping your toes into the vast world
         of literature. Explore personalized recommendations based on your
         interests and discover your next favourite Book{" "}
-        <a href="#bestseller">↴</a>
       </p>
       <div className="content">
         <BestSellerBooks bestSellerBooks={bestSellerBooks} />

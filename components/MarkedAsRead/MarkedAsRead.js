@@ -28,8 +28,8 @@ export default function MarkedAsRead() {
   return (
     <>
       <div className="bookshelf-header">
-        <h1>Books I read</h1>
-        <p>You read {BooksReadNumber} Books in total</p>
+        <h1>List of read books</h1>
+        <p>{BooksReadNumber} Books</p>
       </div>
       <div className="books-container">
         <Books books={userBooks[0].books} />
