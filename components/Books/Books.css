@@ -8,6 +8,13 @@
   width: 160px;
   margin-bottom: 10px;
   background-color: var(--color-black);
+  opacity: 0.8;
+  transition: all 0.2s ease-in-out;
+}
+
+.bookimage-small:hover {
+  opacity: 1;
+  transform: scale(1.02);
 }
 
 .title {
