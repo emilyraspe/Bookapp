@@ -25,3 +25,7 @@
 .nav--element-left {
   border: none;
 }
+
+.active {
+  color: var(--color-blue);
+}
