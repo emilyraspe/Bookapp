@@ -22,9 +22,10 @@ textarea {
   width: 100%;
 }
 
-.radio {
-  border: 0px;
-  height: 15px;
-  width: 15px;
-  background-color: var(--color-darkgrey);
+fieldset > div > label {
+  padding-left: 3px;
+}
+
+fieldset > legend {
+  padding-bottom: 5px;
 }
