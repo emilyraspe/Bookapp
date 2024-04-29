@@ -37,7 +37,7 @@ export default function Rec() {
     console.log("SearchInput", searchInput);
     event.target.reset();
   }
-  console.log("===", aiData[0]?.text);
+
   const bookFromAI = aiData[0]?.text;
 
   //fetch book from googlebooks api
@@ -61,7 +61,9 @@ export default function Rec() {
         <textarea type="text" name="fav" rows="4" cols="50"></textarea>
 
         <fieldset>
-          <legend>Select a genre</legend>
+          <legend>
+            <strong>Select a genre</strong>
+          </legend>
 
           <div>
             <input
@@ -69,7 +71,7 @@ export default function Rec() {
               id="fiction"
               name="genre"
               value="fiction"
-              className="genre"
+              className="radio"
             />
 
             <label htmlFor="fiction">Fiction</label>
