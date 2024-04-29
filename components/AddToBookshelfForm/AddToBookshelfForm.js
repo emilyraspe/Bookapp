@@ -41,7 +41,9 @@ export default function AddToBookshelfForm({ bookdata }) {
 
   return (
     <>
-      {isSuccess ? <p>Book added successfully!</p> : null}
+      {isSuccess ? (
+        <p className="addToBookshelfSuccess">Book added successfully!</p>
+      ) : null}
       {!session ? (
         <p>Please Login for more</p>
       ) : (

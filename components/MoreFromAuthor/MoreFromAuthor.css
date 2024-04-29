@@ -1,3 +1,8 @@
 .moreFromAuthor-container {
   padding-bottom: 25px;
 }
+
+.book-author {
+  width: auto;
+  height: 230px;
+}

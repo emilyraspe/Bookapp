@@ -56,6 +56,8 @@
 
 .markedAsRead {
   padding: 10px 0px;
+  color: var(--color-darkgrey);
+  animation: fade-in 1000ms;
 }
 
 .details-userInteractions {
@@ -83,5 +85,14 @@
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: var(--color-black);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

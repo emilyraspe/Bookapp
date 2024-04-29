@@ -87,7 +87,7 @@ export default function BookDetails({
     );
   };
 
-  //stuff for date that book was added
+  //stuff for date book was added
   const currentUSER = readBooks?.find(
     (obj) => obj.userId === session?.user.userId
   );
