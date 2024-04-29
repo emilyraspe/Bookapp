@@ -27,7 +27,7 @@ export default function Books({ books }) {
           >
             <img
               src={book.volumeInfo.imageLinks?.thumbnail}
-              className="bookimage-small"
+              className="bookimage-small book-author"
             ></img>
           </Link>
           <div>

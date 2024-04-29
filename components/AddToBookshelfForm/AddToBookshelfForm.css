@@ -20,3 +20,20 @@
   color: var(--color-white);
   border-color: var(--color-black);
 }
+
+.addToBookshelfSuccess {
+  padding-bottom: 15px;
+  color: var(--color-darkgrey);
+  animation: slide-in 800ms;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
