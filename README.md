@@ -1,84 +1,30 @@
-# Bookapp for FinalProject
+# PageTurner Project
 
-## User Stories
+## Overview
 
-### 1. Separate Pages
+Are you tired of losing track of the books you've read, forgetting titles you want to explore, or struggling to discover your next literary adventure? Look no further! PageTurner is designed to streamline your reading experience, whether you're a seasoned bookworm or just dipping your toes into the vast world of literature. Explore personalized recommendations based on your interests and discover your next favorite book.
 
-As the user I want to be able to switch between the pages "Homepage", "Search", and "Profile"
-so that I can navigate the App easier
+## Features
 
-To-Do
+- **Personalized Recommendations**: Get book suggestions tailored to your interests.
+- **Reading Tracker**: Keep a log of books you've read and want to read.
+- **Discover New Titles**: Explore books using the Google Books API and the New York Times Bestseller API.
+- **Claude AI Integration**: Enhance your experience with AI-powered recommendations.
+- **User Authentication**: Secure login using Google Auth.
+- **Backend Database**: Store user data and book information using MongoDB.
 
-- Navigation Link: Homepage
-- Navigation Link: Search
-- Navigation Link: Profile
+## Technologies Used
 
-- Data fetching needs to happen in pages/\_app
-- Homepage: pages/index.js
-- Search: pages/search/ index.js
-- Profile: pages/profile/index.js
-- Create Navigation component that renders the Links to the pages
-- Create Layout component that renders Navigation component
-- Render Layout component in pages/\_app
+- **JavaScript (JS)**
+- **React**
+- **Next.js**
+- **CSS**
+- **Google Books API**
+- **New York Times Bestseller API**
+- **Claude AI Implementation**
+- **MongoDB**
+- **Google Auth**
 
-### 2. Search for books
+## To-Do
 
-As the user I want to be able to search for books, based on name or author
-so that I can find a book to read next
-
-To-Do
-
-- Create Searchbar component and render in pages/search/ index.js
-- Render an overview of the searched book
-- Create component BookOverview
-
-### 3. Bookdetails
-
-As the user I want to be able to click on a book and get a detailed information about the book (author, published date, summary, genre, add to list button, mark as read)
-so that I can learn everything about the book
-
-To-Do
-
-- Create Bookdetails component
-  - Bookprops (author, published, summary, genre)
-- Create pages/book/[slug] that renders the component Bookdetails
-- Use slug to find and display Bookdetails
-- Clicking on the books shows the Bookdetails
-- Back Button is displayed
-- Add to list Button is displayed
-- Mark as read button is displayed
-
-### 4. Homepage
-
-As the user I want to see random book recommendations on the Homepage
-so that I can discover new books
-
-To-Do
-
-- 4 random books are being displayed
-  - Write a function to display 4 random books
-- Create a component RandomBooks
-  - props: name, author
-
-### 5. Booklists
-
-As the user I want to see and create booklists
-so that I can save books that I like
-
-To-Do
-
-- Create a component for OverviewBooklist
-- Create a component for Booklist
-  - Render the books that have been added to that list (BookOverview Component that have been added to a list)
-
-### 6. Profile
-
-As the user I want to be able to see my profilepage
-so that I have an overview of my booklists and can access them
-
-To-Do
-
-- Create a component Profile
-  - that renders Information about the user, the name and the booklist Component
-- Render OverviewBooklist
-- When clicking on a list it shows component Booklist
+- Optimize the desktop version for better usability and aesthetics
