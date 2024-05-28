@@ -1,5 +1,7 @@
 # PageTurner Project
 
+![Screen](/public/screen.png)
+
 ## Overview
 
 Are you tired of losing track of the books you've read, forgetting titles you want to explore, or struggling to discover your next literary adventure? Look no further! PageTurner is designed to streamline your reading experience, whether you're a seasoned bookworm or just dipping your toes into the vast world of literature. Explore personalized recommendations based on your interests and discover your next favorite book.
