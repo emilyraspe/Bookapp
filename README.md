@@ -1,6 +1,6 @@
 # PageTurner Project
 
-![Screen](/public/screen.png)
+<img src="/public/screen.png" alt="Screen" width="150px" />
 
 ## Overview
 
